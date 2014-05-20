@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/main_button_green"
-            android:textColor="@android:color/white"
+            android:textSize="26sp"
             android:text="New Game"/>
 
         <Button
@@ -31,6 +31,7 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/main_button_red"
             android:textColor="@android:color/white"
+            android:textSize="26sp"
             android:text="Statistics"/>
 
         <Button
@@ -39,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/main_button_yellow"
-            android:textColor="@android:color/white"
+            android:textSize="26sp"
             android:text="Settings"/>
 
         <Button
@@ -49,6 +50,7 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/main_button_blue"
             android:textColor="@android:color/white"
+            android:textSize="26sp"
             android:text="About"/>
 
     </LinearLayout>
