@@ -22,7 +22,8 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/main_button_green"
             android:textSize="26sp"
-            android:text="New Game"/>
+            android:text="New Game"
+            android:onClick="comenzar"/>
 
         <Button
             android:id="@+id/btn_statistics"

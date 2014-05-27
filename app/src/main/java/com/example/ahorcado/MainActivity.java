@@ -35,7 +35,6 @@ public class MainActivity extends ActionBarActivity {
             b.setTypeface(tf);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
