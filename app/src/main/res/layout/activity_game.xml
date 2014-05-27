@@ -11,9 +11,10 @@
 
     <TextView
         android:id="@+id/txt_palabra"
-        android:layout_width="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="p_l_br_"
+        android:text="_____"
         android:textSize="26sp"
         android:padding="3dip"
         android:gravity="center"/>

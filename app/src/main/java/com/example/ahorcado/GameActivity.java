@@ -1,16 +1,22 @@
 package com.example.ahorcado;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class GameActivity extends ActionBarActivity {
+    View.OnClickListener clickListenerLetras;
+    ArrayList<TextView> botonesLetras;
+    TextView palabra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +24,7 @@ public class GameActivity extends ActionBarActivity {
         setContentView(R.layout.activity_game);
 
         // Lista de botones
-        ArrayList<TextView> botonesLetras = new ArrayList<TextView>();
+        botonesLetras = new ArrayList<TextView>();
         // Rellenar la lista de botonesLetras
         botonesLetras.add((TextView) findViewById(R.id.txt_a));
         botonesLetras.add((TextView) findViewById(R.id.txt_b));
@@ -47,6 +53,17 @@ public class GameActivity extends ActionBarActivity {
         botonesLetras.add((TextView) findViewById(R.id.txt_y));
         botonesLetras.add((TextView) findViewById(R.id.txt_z));
 
+        // TextView de la palabra:
+        palabra = (TextView) findViewById(R.id.txt_palabra);
+
+        // ClickListener para las letras:
+        clickListenerLetras = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(GameActivity.this,((TextView)view).getText(), Toast.LENGTH_LONG).show();
+            }
+        };
+
         // Ruta de la fuente
         String fontPath = "fonts/FFF_Tusj.ttf";
         // Carga de la fuente
@@ -56,7 +73,9 @@ public class GameActivity extends ActionBarActivity {
         for(TextView b : botonesLetras) {
             b.setTypeface(tf);
             b.setTextSize(TypedValue.COMPLEX_UNIT_SP, 26);
+            b.setOnClickListener(clickListenerLetras);
         }
+        palabra.setTypeface(tf);
 
         BaseDatos bd = new BaseDatos(this);
         ((TextView) findViewById(R.id.txt_palabra)).setText(bd.queryPalabraAleatoria().getIngles());
@@ -78,5 +97,14 @@ public class GameActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, MainActivity.class));
+
+        overridePendingTransition(R.anim.right_in, R.anim.right_out);
+
+        finish(); // cerramos este Activity
     }
 }

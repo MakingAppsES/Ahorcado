@@ -58,5 +58,7 @@ public class MainActivity extends ActionBarActivity {
         startActivity(new Intent(this, GameActivity.class));
 
         overridePendingTransition(R.anim.left_in, R.anim.left_out);
+
+        finish(); // cerramos este Activity
     }
 }
