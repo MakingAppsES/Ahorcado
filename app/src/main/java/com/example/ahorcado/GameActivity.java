@@ -57,6 +57,8 @@ public class GameActivity extends ActionBarActivity {
             b.setTypeface(tf);
             b.setTextSize(TypedValue.COMPLEX_UNIT_SP, 26);
         }
+
+        BaseDatos bd = new BaseDatos(this);
     }
 
     @Override
