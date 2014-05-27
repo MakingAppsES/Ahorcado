@@ -22,8 +22,8 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/main_button_green"
             android:textSize="26sp"
-            android:text="New Game"
-            android:onClick="comenzar"/>
+            android:text="@string/btn_new_game_text"
+            android:onClick="newGame"/>
 
         <Button
             android:id="@+id/btn_statistics"
@@ -33,7 +33,7 @@
             android:background="@drawable/main_button_red"
             android:textColor="@android:color/white"
             android:textSize="26sp"
-            android:text="Statistics"/>
+            android:text="@string/btn_statistics_text"/>
 
         <Button
             android:id="@+id/btn_settings"
@@ -42,7 +42,7 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/main_button_yellow"
             android:textSize="26sp"
-            android:text="Settings"/>
+            android:text="@string/btn_settings_text"/>
 
         <Button
             android:id="@+id/btn_about"
@@ -52,7 +52,7 @@
             android:background="@drawable/main_button_blue"
             android:textColor="@android:color/white"
             android:textSize="26sp"
-            android:text="About"/>
+            android:text="@string/btn_about_text"/>
 
     </LinearLayout>
 </ScrollView>
