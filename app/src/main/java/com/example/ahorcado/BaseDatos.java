@@ -29,9 +29,16 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         database.execSQL(CREATE_VOCABULARIO);
 
-        database.execSQL("INSERT INTO Vocabulario (espaniol, ingles, dificultad) VALUES ('casa', 'house', 1);");
+        insertPalabra(database,"Perro","Dog",1);
+        insertPalabra(database,"Casa","House",1);
+        insertPalabra(database,"Gato","Cat",1);
 
         // rellenar();
+    }
+
+    private void insertPalabra(SQLiteDatabase database, String spa, String eng, int dif){
+        database.execSQL("INSERT INTO Vocabulario (espaniol, ingles, dificultad) " +
+                         "VALUES ('"+spa+"', '"+eng+"', "+dif+");");
     }
 
     private void doReset(SQLiteDatabase database){
@@ -75,9 +82,8 @@ public class BaseDatos extends SQLiteOpenHelper {
         Palabra palabra = null;
 
         SQLiteDatabase database = this.getReadableDatabase();
-        String query = "SELECT * FROM " + VOCABULARIO +
-                       " WHERE _ROWID_ >= (abs(random()) % (SELECT max(_ROWID_) FROM " + VOCABULARIO + ")) " +
-                       " LIMIT 1;";
+
+        String query = "SELECT * FROM " + VOCABULARIO +" ORDER BY RANDOM() LIMIT 1;";
 
         Cursor cursor = database.rawQuery(query, null);
         if(cursor.moveToFirst()){

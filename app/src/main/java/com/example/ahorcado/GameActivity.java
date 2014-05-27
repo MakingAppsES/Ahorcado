@@ -59,6 +59,7 @@ public class GameActivity extends ActionBarActivity {
         }
 
         BaseDatos bd = new BaseDatos(this);
+        ((TextView) findViewById(R.id.txt_palabra)).setText(bd.queryPalabraAleatoria().getIngles());
     }
 
     @Override
