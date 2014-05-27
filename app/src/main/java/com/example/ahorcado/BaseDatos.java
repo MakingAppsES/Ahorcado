@@ -76,7 +76,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         SQLiteDatabase database = this.getReadableDatabase();
         String query = "SELECT * FROM " + VOCABULARIO +
-                       " WHERE _ROWID_ >= (abs(random()) % (SELECT max(_ROWID_) FROM " + VOCABULARIO + ")) " +
+                       " WHERE _id >= (abs(random()) % (SELECT max(_ic) FROM " + VOCABULARIO + ")) " +
                        " LIMIT 1;";
 
         Cursor cursor = database.rawQuery(query, null);
