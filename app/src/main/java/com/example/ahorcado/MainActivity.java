@@ -55,8 +55,8 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void newGame(View view) {
-        Intent intent = new Intent(this, GameActivity.class);
+        startActivity(new Intent(this, GameActivity.class));
 
-        startActivity(intent);
+        overridePendingTransition(R.anim.left_in, R.anim.left_out);
     }
 }
