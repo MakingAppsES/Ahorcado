@@ -1,6 +1,7 @@
 package com.example.ahorcado;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -11,17 +12,28 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class GameActivity extends ActionBarActivity {
-    View.OnClickListener clickListenerLetras;
-    ArrayList<TextView> botonesLetras;
-    TextView palabra;
+
+    private View.OnClickListener clickListenerLetras;
+    private ArrayList<TextView> botonesLetras;
+    private TextView palabraEspaniol;
+    private TextView palabraIngles;
+    private Palabra palabraActual;
+    private int fallos;
+    private GameDialog gameDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        fallos = 0;
+
+        gameDialog = new GameDialog();
 
         // Lista de botones
         botonesLetras = new ArrayList<TextView>();
@@ -53,14 +65,17 @@ public class GameActivity extends ActionBarActivity {
         botonesLetras.add((TextView) findViewById(R.id.txt_y));
         botonesLetras.add((TextView) findViewById(R.id.txt_z));
 
-        // TextView de la palabra:
-        palabra = (TextView) findViewById(R.id.txt_palabra);
+        // TextView de las palabras
+        palabraEspaniol = (TextView) findViewById(R.id.txt_palabra_espaniol);
+        palabraIngles = (TextView) findViewById(R.id.txt_palabra_ingles);
 
         // ClickListener para las letras:
         clickListenerLetras = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(GameActivity.this,((TextView)view).getText(), Toast.LENGTH_LONG).show();
+                // Toast.makeText(GameActivity.this,((TextView) view).getText(), Toast.LENGTH_SHORT).show();
+
+                comprobarLetra((TextView) view);
             }
         };
 
@@ -75,10 +90,16 @@ public class GameActivity extends ActionBarActivity {
             b.setTextSize(TypedValue.COMPLEX_UNIT_SP, 26);
             b.setOnClickListener(clickListenerLetras);
         }
-        palabra.setTypeface(tf);
+        palabraEspaniol.setTypeface(tf);
+        palabraIngles.setTypeface(tf);
 
+        // Inicializacion de la base de datos
         BaseDatos bd = new BaseDatos(this);
-        ((TextView) findViewById(R.id.txt_palabra)).setText(bd.queryPalabraAleatoria().getIngles());
+
+        palabraActual = bd.queryPalabraAleatoria();
+
+        palabraEspaniol.setText(palabraActual.getEspaniol());
+        palabraIngles.setText(palabraActual.palabraToGuiones());
     }
 
     @Override
@@ -106,5 +127,38 @@ public class GameActivity extends ActionBarActivity {
         overridePendingTransition(R.anim.right_in, R.anim.right_out);
 
         finish(); // cerramos este Activity
+    }
+
+    public void comprobarLetra(TextView textView) {
+        if (palabraActual.getIngles().contains(textView.getText())) {
+            textView.setTextColor(Color.GREEN);
+
+            String progreso = palabraIngles.getText().toString();
+            String solucion = palabraActual.getIngles();
+
+            String nuevoProgreso = "";
+            char letra;
+            for (int i = 0; i < solucion.length(); i++) {
+                letra = textView.getText().charAt(0);
+                nuevoProgreso += (solucion.charAt(i) == letra) ? letra : progreso.charAt(i);
+            }
+
+            palabraIngles.setText(nuevoProgreso);
+
+            if (nuevoProgreso.equals(solucion)) {
+                // GANA
+                System.out.print("entro");
+                gameDialog.show(getSupportFragmentManager(), "win");
+            }
+        }
+        else {
+            textView.setTextColor(Color.RED);
+
+            fallos++;
+
+            if (fallos == 5) {
+                // PIERDE
+            }
+        }
     }
 }

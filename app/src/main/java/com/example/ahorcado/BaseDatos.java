@@ -29,16 +29,15 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         database.execSQL(CREATE_VOCABULARIO);
 
+        // Base de datos inicial
         insertPalabra(database,"Perro","Dog",1);
         insertPalabra(database,"Casa","House",1);
         insertPalabra(database,"Gato","Cat",1);
-
-        // rellenar();
     }
 
     private void insertPalabra(SQLiteDatabase database, String spa, String eng, int dif){
         database.execSQL("INSERT INTO Vocabulario (espaniol, ingles, dificultad) " +
-                         "VALUES ('"+spa+"', '"+eng+"', "+dif+");");
+                         "VALUES ('" + spa + "', '" + eng + "', " + dif + ");");
     }
 
     private void doReset(SQLiteDatabase database){
@@ -97,13 +96,5 @@ public class BaseDatos extends SQLiteOpenHelper {
         database.close();
 
         return palabra;
-    }
-
-    private void rellenar() {
-        insertPalabra(new Palabra("take off", "despegar", 2));
-        insertPalabra(new Palabra("take off", "quitarse", 2));
-        insertPalabra(new Palabra("house", "casa", 1));
-        insertPalabra(new Palabra("dog", "perro", 1));
-        insertPalabra(new Palabra("cat", "gato", 1));
     }
 }

@@ -9,8 +9,8 @@ public class Palabra {
     private int dificultad;
 
     public Palabra(String espaniol, String ingles, int dificultad) {
-        this.espaniol = espaniol;
-        this.ingles = ingles;
+        this.espaniol = espaniol.toLowerCase();
+        this.ingles = ingles.toLowerCase();
         this.dificultad = dificultad;
     }
 
@@ -27,14 +27,24 @@ public class Palabra {
     }
 
     public void setEspaniol(String espaniol) {
-        this.espaniol = espaniol;
+        this.espaniol = espaniol.toLowerCase();
     }
 
     public void setIngles(String ingles) {
-        this.ingles = ingles;
+        this.ingles = ingles.toLowerCase();
     }
 
     public void setDificultad(int dificultad) {
         this.dificultad = dificultad;
+    }
+
+    public String palabraToGuiones() {
+        String oculta = "";
+
+        for (int i = 0; i < ingles.length(); i++) {
+            oculta += (ingles.charAt(i) != ' ') ? "-" : " ";
+        }
+
+        return oculta;
     }
 }
