@@ -9,6 +9,13 @@
     tools:context="com.example.ahorcado.GameActivity"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_ahorcado"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ahorcado_0"/>
+
     <TextView
         android:id="@+id/txt_palabra_ingles"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
