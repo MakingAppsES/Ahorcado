@@ -33,7 +33,8 @@
             android:background="@drawable/main_button_red"
             android:textColor="@android:color/white"
             android:textSize="26sp"
-            android:text="@string/btn_statistics_text"/>
+            android:text="@string/btn_statistics_text"
+            android:onClick="resultados"/>
 
         <Button
             android:id="@+id/btn_settings"
@@ -42,7 +43,8 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/main_button_yellow"
             android:textSize="26sp"
-            android:text="@string/btn_settings_text"/>
+            android:text="@string/btn_settings_text"
+            android:onClick="opciones"/>
 
         <Button
             android:id="@+id/btn_about"
@@ -52,7 +54,8 @@
             android:background="@drawable/main_button_blue"
             android:textColor="@android:color/white"
             android:textSize="26sp"
-            android:text="@string/btn_about_text"/>
+            android:text="@string/btn_about_text"
+            android:onClick="acercaDe"/>
 
     </LinearLayout>
 </ScrollView>

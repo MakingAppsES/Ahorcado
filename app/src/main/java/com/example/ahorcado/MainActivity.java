@@ -58,7 +58,23 @@ public class MainActivity extends ActionBarActivity {
         startActivity(new Intent(this, GameActivity.class));
 
         overridePendingTransition(R.anim.left_in, R.anim.left_out);
+    }
 
-        finish(); // cerramos este Activity
+    public void resultados(View view) {
+        startActivity(new Intent(this, ResultadosActivity.class));
+
+        overridePendingTransition(R.anim.right_in, R.anim.right_out);
+    }
+
+    public void opciones(View view) {
+        startActivity(new Intent(this, OpcionesActivity.class));
+
+        overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
+    }
+
+    public void acercaDe(View view) {
+        startActivity(new Intent(this, AcercaDeActivity.class));
+
+        overridePendingTransition(R.anim.top_in, R.anim.top_out);
     }
 }

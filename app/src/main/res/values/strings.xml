@@ -8,5 +8,9 @@
     <string name="btn_settings_text">Opciones</string>
     <string name="btn_about_text">Acerca de</string>
     <string name="title_activity_game">GameActivity</string>
+    <string name="title_activity_resultados">ResultadosActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_opciones">OpcionesActivity</string>
+    <string name="title_activity_acerca_de">AcercaDeActivity</string>
 
 </resources>

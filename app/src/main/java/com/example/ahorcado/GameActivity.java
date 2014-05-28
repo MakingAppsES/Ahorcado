@@ -124,11 +124,9 @@ public class GameActivity extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(this, MainActivity.class));
+        super.onBackPressed();
 
         overridePendingTransition(R.anim.right_in, R.anim.right_out);
-
-        finish(); // cerramos este Activity
     }
 
     public void comprobarLetra(TextView textView) {

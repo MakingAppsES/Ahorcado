@@ -24,6 +24,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
+        <activity
+            android:name="com.example.ahorcado.ResultadosActivity"
+            android:label="@string/title_activity_resultados" >
+        </activity>
+        <activity
+            android:name="com.example.ahorcado.OpcionesActivity"
+            android:label="@string/title_activity_opciones" >
+        </activity>
+        <activity
+            android:name="com.example.ahorcado.AcercaDeActivity"
+            android:label="@string/title_activity_acerca_de" >
+        </activity>
     </application>
 
 </manifest>
