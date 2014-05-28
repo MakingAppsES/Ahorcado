@@ -141,6 +141,7 @@ public class GameActivity extends ActionBarActivity {
 
             String progreso = palabraIngles.getText().toString();
 
+            // normalizacion del progreso
             progreso = normalizar(progreso);
 
             String solucion = palabraActual.getIngles();
@@ -151,9 +152,6 @@ public class GameActivity extends ActionBarActivity {
                 letra = textView.getText().charAt(0);
                 nuevoProgreso += (solucion.charAt(i) == letra) ? letra : progreso.charAt(i);
             }
-
-            nuevoProgreso = visualizar(nuevoProgreso);
-            palabraIngles.setText(nuevoProgreso);
 
             if (nuevoProgreso.equals(solucion)) {
                 // GANA
@@ -167,6 +165,10 @@ public class GameActivity extends ActionBarActivity {
                 MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.acierto);
                 mediaPlayer.start();
             }
+
+            // visualizacion del proceso
+            nuevoProgreso = visualizar(nuevoProgreso);
+            palabraIngles.setText(nuevoProgreso);
         }
         else {
             textView.setTextColor(Color.RED);
