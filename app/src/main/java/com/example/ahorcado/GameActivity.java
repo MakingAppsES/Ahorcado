@@ -103,8 +103,6 @@ public class GameActivity extends ActionBarActivity {
 
         palabraEspaniol.setText(palabraActual.getEspaniol());
         palabraIngles.setText(palabraActual.palabraToGuiones());
-
-        // TODO: Fijar inicialmente la imagen
     }
 
     @Override
