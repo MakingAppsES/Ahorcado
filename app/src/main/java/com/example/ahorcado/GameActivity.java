@@ -33,7 +33,7 @@ public class GameActivity extends ActionBarActivity {
 
         fallos = 0;
 
-        gameDialog = new GameDialog();
+        //gameDialog = new GameDialog();
 
         // Lista de botones
         botonesLetras = new ArrayList<TextView>();
@@ -151,7 +151,7 @@ public class GameActivity extends ActionBarActivity {
             if (nuevoProgreso.equals(solucion)) {
                 // GANA
                 System.out.print("entro");
-                gameDialog.show(getSupportFragmentManager(), "win");
+                new GameDialog(this,true).show();
 
                 MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.acierto);
                 mediaPlayer.start();
@@ -176,8 +176,7 @@ public class GameActivity extends ActionBarActivity {
 
             if (fallos == FALLOS) {
                 System.out.print("entro");
-                // gameDialog.setCancelable(false);
-                gameDialog.show(getSupportFragmentManager(), "lose");
+                new GameDialog(this,true).show();
 
                 MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.error);
                 mediaPlayer.start();

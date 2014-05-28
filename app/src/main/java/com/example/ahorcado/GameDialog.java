@@ -1,30 +1,39 @@
 package com.example.ahorcado;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
+import android.widget.Toast;
 
-public class GameDialog extends DialogFragment {
+public class GameDialog extends Dialog {
 
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.dialog_game);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        findViewById(R.id.btn_nada).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Naaaaaada", Toast.LENGTH_SHORT).show();
+                GameDialog.this.dismiss();
+            }
+        });
+    }
 
-        builder.setView(inflater.inflate(R.layout.dialog_game, null));
-        /*
-               .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog, int id) {
-                       getActivity().finish();
-                       startActivity(new Intent(getActivity(), GameDialog.class));
-                   }
-               });*/
+    public GameDialog(Context context) {
+        super(context, R.style.CustomDialogStyle);
+    }
 
-        return builder.create();
+    public GameDialog(Context context, boolean cancelable) {
+        super(context, R.style.CustomDialogStyle);
+        this.setCancelable(cancelable);
+    }
+
+    public GameDialog(Context context, int theme) {
+        super(context, theme);
     }
 }
