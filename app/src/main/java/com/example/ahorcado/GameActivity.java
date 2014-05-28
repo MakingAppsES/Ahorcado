@@ -1,6 +1,5 @@
 package com.example.ahorcado;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
@@ -10,10 +9,8 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -171,9 +168,11 @@ public class GameActivity extends ActionBarActivity {
         else {
             textView.setTextColor(Color.RED);
 
-            // TODO: Actualizar imagenes en funcion de los fallos
-
             fallos++;
+
+            ImageView img_ahorcado = (ImageView) findViewById(R.id.img_ahorcado);
+            int id_imagen_fallo = getResources().getIdentifier("com.example.ahorcado:drawable/ahorcado_"+fallos, null, null);
+            img_ahorcado.setImageResource(id_imagen_fallo);
 
             if (fallos == FALLOS) {
                 System.out.print("entro");
