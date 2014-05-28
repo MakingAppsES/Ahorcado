@@ -18,6 +18,8 @@ import java.util.ArrayList;
 
 public class GameActivity extends ActionBarActivity {
 
+    private static final int FALLOS = 7;
+
     private View.OnClickListener clickListenerLetras;
     private ArrayList<TextView> botonesLetras;
     private TextView palabraEspaniol;
@@ -156,8 +158,10 @@ public class GameActivity extends ActionBarActivity {
 
             fallos++;
 
-            if (fallos == 5) {
-                // PIERDE
+            if (fallos == FALLOS) {
+                System.out.print("entro");
+                // gameDialog.setCancelable(false);
+                gameDialog.show(getSupportFragmentManager(), "lose");
             }
         }
     }
