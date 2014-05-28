@@ -3,6 +3,7 @@ package com.example.ahorcado;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -102,6 +103,8 @@ public class GameActivity extends ActionBarActivity {
 
         palabraEspaniol.setText(palabraActual.getEspaniol());
         palabraIngles.setText(palabraActual.palabraToGuiones());
+
+        // TODO: Fijar inicialmente la imagen
     }
 
     @Override
@@ -126,6 +129,9 @@ public class GameActivity extends ActionBarActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
+        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pagination);
+        mediaPlayer.start();
+
         overridePendingTransition(R.anim.right_in, R.anim.right_out);
     }
 
@@ -134,25 +140,38 @@ public class GameActivity extends ActionBarActivity {
             textView.setTextColor(Color.GREEN);
 
             String progreso = palabraIngles.getText().toString();
+
+            progreso = normalizar(progreso);
+
             String solucion = palabraActual.getIngles();
 
             String nuevoProgreso = "";
             char letra;
-            for (int i = 0; i < solucion.length(); i++) {
+            for (int i = 0; i < progreso.length(); i++) {
                 letra = textView.getText().charAt(0);
                 nuevoProgreso += (solucion.charAt(i) == letra) ? letra : progreso.charAt(i);
             }
 
+            nuevoProgreso = visualizar(nuevoProgreso);
             palabraIngles.setText(nuevoProgreso);
 
             if (nuevoProgreso.equals(solucion)) {
                 // GANA
                 System.out.print("entro");
                 gameDialog.show(getSupportFragmentManager(), "win");
+
+                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.acierto);
+                mediaPlayer.start();
+            }
+            else {
+                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.acierto);
+                mediaPlayer.start();
             }
         }
         else {
             textView.setTextColor(Color.RED);
+
+            // TODO: Actualizar imagenes en funcion de los fallos
 
             fallos++;
 
@@ -160,7 +179,50 @@ public class GameActivity extends ActionBarActivity {
                 System.out.print("entro");
                 // gameDialog.setCancelable(false);
                 gameDialog.show(getSupportFragmentManager(), "lose");
+
+                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.error);
+                mediaPlayer.start();
+            }
+            else {
+                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.error);
+                mediaPlayer.start();
             }
         }
+    }
+
+    /* ------------------------------------------------------------------------------------------ */
+
+    private String normalizar(String s) {
+
+        String resultado = "";
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) != ' ') {
+                if(s.charAt(i) == '\t') {
+                    resultado += " ";
+                }
+                else {
+                    resultado += s.charAt(i);
+                }
+            }
+        }
+
+        return resultado;
+    }
+
+    private String visualizar(String s) {
+
+        String resultado = "";
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) != ' ') {
+                resultado += s.charAt(i) + " ";
+            }
+            else {
+                resultado += '\t';
+            }
+        }
+
+        return resultado;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.ahorcado;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -38,6 +39,9 @@ public class ResultadosActivity extends ActionBarActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+
+        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pagination);
+        mediaPlayer.start();
 
         overridePendingTransition(R.anim.left_in, R.anim.left_out);
     }

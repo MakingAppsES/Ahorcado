@@ -2,6 +2,7 @@ package com.example.ahorcado;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -57,11 +58,17 @@ public class MainActivity extends ActionBarActivity {
     public void newGame(View view) {
         startActivity(new Intent(this, GameActivity.class));
 
+        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pagination);
+        mediaPlayer.start();
+
         overridePendingTransition(R.anim.left_in, R.anim.left_out);
     }
 
     public void resultados(View view) {
         startActivity(new Intent(this, ResultadosActivity.class));
+
+        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pagination);
+        mediaPlayer.start();
 
         overridePendingTransition(R.anim.right_in, R.anim.right_out);
     }
@@ -69,11 +76,17 @@ public class MainActivity extends ActionBarActivity {
     public void opciones(View view) {
         startActivity(new Intent(this, OpcionesActivity.class));
 
+        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pagination);
+        mediaPlayer.start();
+
         overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
     }
 
     public void acercaDe(View view) {
         startActivity(new Intent(this, AcercaDeActivity.class));
+
+        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pagination);
+        mediaPlayer.start();
 
         overridePendingTransition(R.anim.top_in, R.anim.top_out);
     }

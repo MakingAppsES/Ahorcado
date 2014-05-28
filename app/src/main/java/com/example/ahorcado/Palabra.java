@@ -42,7 +42,7 @@ public class Palabra {
         String oculta = "";
 
         for (int i = 0; i < ingles.length(); i++) {
-            oculta += (ingles.charAt(i) != ' ') ? "-" : " ";
+            oculta += (ingles.charAt(i) != ' ') ? "_ " : "\t";
         }
 
         return oculta;
