@@ -39,7 +39,21 @@ public class MainActivity extends ActionBarActivity {
         for(Button b : botones)
             b.setTypeface(tf);
 
+        // Aplico la fuente al titulo
         ((TextView) findViewById(R.id.tv_tittle_main)).setTypeface(tf);
+
+        // Pongo el drawable correspondiente en el boton segun este activado o no el sonido
+        Boolean sonidoActivo;
+        Button btnSonido = (Button) findViewById(R.id.btn_sound);
+        try {
+            sonidoActivo = PreferenceManager.getBoolean(KEY_SONIDO,this);
+        } catch (Exception e) {
+            Log.e("PreferenceManager",e.toString());
+            PreferenceManager.putBoolean(KEY_SONIDO,true,this);
+            sonidoActivo = true;
+        }
+        btnSonido.setBackgroundResource(sonidoActivo ? R.drawable.main_button_green :
+                R.drawable.main_button_red);
     }
 
     @Override
@@ -108,13 +122,8 @@ public class MainActivity extends ActionBarActivity {
             sonidoActivo = true;
         }
 
-        if(sonidoActivo) {
-            btnSonido.setBackgroundResource(R.drawable.main_button_red);
-            Boolean res= PreferenceManager.putBoolean(KEY_SONIDO,false,this);
-        }
-        else {
-            btnSonido.setBackgroundResource(R.drawable.main_button_green);
-            PreferenceManager.putBoolean(KEY_SONIDO,true,this);
-        }
+        btnSonido.setBackgroundResource(sonidoActivo ? R.drawable.main_button_red :
+                R.drawable.main_button_green);
+        PreferenceManager.putBoolean(KEY_SONIDO, !sonidoActivo, this);
     }
 }
