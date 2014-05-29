@@ -5,14 +5,17 @@ import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends ActionBarActivity {
+    public static String KEY_SONIDO = "SONIDO";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,8 @@ public class MainActivity extends ActionBarActivity {
         // Aplicando la fuente a los botones
         for(Button b : botones)
             b.setTypeface(tf);
+
+        ((TextView) findViewById(R.id.tv_tittle_main)).setTypeface(tf);
     }
 
     @Override
@@ -89,5 +94,27 @@ public class MainActivity extends ActionBarActivity {
         mediaPlayer.start();
 
         overridePendingTransition(R.anim.top_in, R.anim.top_out);
+    }
+
+    public void toggleSonido(View view) {
+        Boolean sonidoActivo;
+        Button btnSonido = (Button) findViewById(R.id.btn_sound);
+
+        try {
+            sonidoActivo = PreferenceManager.getBoolean(KEY_SONIDO,this);
+        } catch (Exception e) {
+            Log.e("PreferenceManager",e.toString());
+            PreferenceManager.putBoolean(KEY_SONIDO,true,this);
+            sonidoActivo = true;
+        }
+
+        if(sonidoActivo) {
+            btnSonido.setBackgroundResource(R.drawable.main_button_red);
+            Boolean res= PreferenceManager.putBoolean(KEY_SONIDO,false,this);
+        }
+        else {
+            btnSonido.setBackgroundResource(R.drawable.main_button_green);
+            PreferenceManager.putBoolean(KEY_SONIDO,true,this);
+        }
     }
 }

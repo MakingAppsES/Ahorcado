@@ -15,6 +15,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/tv_tittle_main"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="34sp"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="@string/app_name"/>
+
         <Button
             android:id="@+id/btn_new_game"
             android:layout_width="wrap_content"
@@ -56,6 +65,16 @@
             android:textSize="26sp"
             android:text="@string/btn_about_text"
             android:onClick="acercaDe"/>
+
+        <Button
+            android:id="@+id/btn_sound"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/main_button_green"
+            android:text="sonido"
+            android:onClick="toggleSonido"/>
 
     </LinearLayout>
 </ScrollView>
