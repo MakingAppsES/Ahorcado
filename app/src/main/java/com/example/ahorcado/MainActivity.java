@@ -1,5 +1,6 @@
 package com.example.ahorcado;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
@@ -77,8 +78,7 @@ public class MainActivity extends ActionBarActivity {
     public void newGame(View view) {
         startActivity(new Intent(this, GameActivity.class));
 
-        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pagination);
-        mediaPlayer.start();
+        reproducirSonido(R.raw.pagination, this);
 
         overridePendingTransition(R.anim.left_in, R.anim.left_out);
     }
@@ -86,8 +86,7 @@ public class MainActivity extends ActionBarActivity {
     public void resultados(View view) {
         startActivity(new Intent(this, ResultadosActivity.class));
 
-        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pagination);
-        mediaPlayer.start();
+        reproducirSonido(R.raw.pagination, this);
 
         overridePendingTransition(R.anim.right_in, R.anim.right_out);
     }
@@ -95,8 +94,7 @@ public class MainActivity extends ActionBarActivity {
     public void opciones(View view) {
         startActivity(new Intent(this, OpcionesActivity.class));
 
-        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pagination);
-        mediaPlayer.start();
+        reproducirSonido(R.raw.pagination, this);
 
         overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
     }
@@ -104,8 +102,7 @@ public class MainActivity extends ActionBarActivity {
     public void acercaDe(View view) {
         startActivity(new Intent(this, AcercaDeActivity.class));
 
-        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pagination);
-        mediaPlayer.start();
+        reproducirSonido(R.raw.pagination, this);
 
         overridePendingTransition(R.anim.top_in, R.anim.top_out);
     }
@@ -125,5 +122,21 @@ public class MainActivity extends ActionBarActivity {
         btnSonido.setBackgroundResource(sonidoActivo ? R.drawable.main_button_red :
                 R.drawable.main_button_green);
         PreferenceManager.putBoolean(KEY_SONIDO, !sonidoActivo, this);
+    }
+
+    public static void reproducirSonido(int idSonido, Activity activity) {
+        Boolean sonidoActivo;
+        try {
+            sonidoActivo = PreferenceManager.getBoolean(KEY_SONIDO,activity);
+        } catch (Exception e) {
+            Log.e("PreferenceManager",e.toString());
+            PreferenceManager.putBoolean(KEY_SONIDO,true,activity);
+            sonidoActivo = true;
+        }
+
+        if( sonidoActivo ){
+            MediaPlayer mediaPlayer = MediaPlayer.create(activity.getApplicationContext(), idSonido);
+            mediaPlayer.start();
+        }
     }
 }

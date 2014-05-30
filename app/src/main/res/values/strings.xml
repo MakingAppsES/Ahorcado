@@ -12,5 +12,11 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_opciones">OpcionesActivity</string>
     <string name="title_activity_acerca_de">AcercaDeActivity</string>
+    <string name="about_description_txt">Este es juego es software libre.</string>
+    <string name="about_developers_txt">Desarrollado por antorof y Carranza.</string>
+    <string name="about_github_txt">Proyecto en GiHub\nhttps://github.com/MakingAppsES/Ahorcado</string>
+    <string name="about_antorof_txt">antorof\nhttps://github.com/antorof</string>
+    <string name="about_carranza_txt">Carranza\nhttps://github.com/Carranza</string>
+    <string name="about_version_txt">v0.0 @ 2014/06</string>
 
 </resources>

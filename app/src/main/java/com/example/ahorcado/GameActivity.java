@@ -124,8 +124,7 @@ public class GameActivity extends ActionBarActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pagination);
-        mediaPlayer.start();
+        MainActivity.reproducirSonido(R.raw.pagination, this);
 
         overridePendingTransition(R.anim.right_in, R.anim.right_out);
     }
@@ -148,17 +147,12 @@ public class GameActivity extends ActionBarActivity {
                 nuevoProgreso += (solucion.charAt(i) == letra) ? letra : progreso.charAt(i);
             }
 
+            MainActivity.reproducirSonido(R.raw.acierto, this);
+
             if (nuevoProgreso.equals(solucion)) {
                 // GANA
                 System.out.print("entro");
-                new GameDialog(this,true).show();
-
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.acierto);
-                mediaPlayer.start();
-            }
-            else {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.acierto);
-                mediaPlayer.start();
+                new GameDialog(this,false).show();
             }
 
             // visualizacion del proceso
@@ -174,16 +168,11 @@ public class GameActivity extends ActionBarActivity {
             int id_imagen_fallo = getResources().getIdentifier("com.example.ahorcado:drawable/ahorcado_"+fallos, null, null);
             img_ahorcado.setImageResource(id_imagen_fallo);
 
+            MainActivity.reproducirSonido(R.raw.error, this);
+
             if (fallos == FALLOS) {
                 System.out.print("entro");
-                new GameDialog(this,true).show();
-
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.error);
-                mediaPlayer.start();
-            }
-            else {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.error);
-                mediaPlayer.start();
+                new GameDialog(this, true).show();
             }
         }
     }

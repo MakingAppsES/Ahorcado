@@ -9,8 +9,78 @@
     tools:context="com.example.ahorcado.AcercaDeActivity">
 
     <TextView
-        android:text="@string/hello_world"
+        android:id="@+id/tv_tittle_about"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="34sp"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:text="@string/app_name"/>
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="150dip"
+        android:layout_height="200dip"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_launcher_big"/>
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:text="@string/about_description_txt"
+        android:layout_below="@id/logo"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tv_developers"
+        android:text="@string/about_developers_txt"
+        android:layout_below="@id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
+
+
+    <TextView
+        android:id="@+id/tv_github"
+        android:text="@string/about_github_txt"
+        android:layout_below="@id/tv_developers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/activity_vertical_margin"/>
+
+    <TextView
+        android:id="@+id/tv_github_antorof"
+        android:text="@string/about_antorof_txt"
+        android:layout_below="@id/tv_github"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/activity_vertical_margin"/>
+
+    <TextView
+        android:id="@+id/tv_github_carranza"
+        android:text="@string/about_carranza_txt"
+        android:layout_below="@id/tv_github_antorof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/activity_vertical_margin"/>
+
+    <TextView
+        android:id="@+id/tv_version"
+        android:text="@string/about_version_txt"
+        android:layout_below="@id/tv_github_carranza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="34dp"/>
+
 
 </RelativeLayout>

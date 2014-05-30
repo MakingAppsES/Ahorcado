@@ -39,8 +39,7 @@ public class OpcionesActivity extends ActionBarActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pagination);
-        mediaPlayer.start();
+        MainActivity.reproducirSonido(R.raw.pagination, this);
 
         overridePendingTransition(R.anim.top_in, R.anim.top_out);
     }
