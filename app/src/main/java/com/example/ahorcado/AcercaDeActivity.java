@@ -81,8 +81,7 @@ public class AcercaDeActivity extends ActionBarActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pagination);
-        mediaPlayer.start();
+        MainActivity.reproducirSonido(R.raw.pagination, this);
 
         overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
     }
