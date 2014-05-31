@@ -15,7 +15,7 @@ public class PreferenceManager {
      * @param activity Actividad de la que queremos las preferencias
      * @return SharedPreferences de la actividad
      */
-    static private SharedPreferences getSharedPreferences(Activity activity) {
+    public static SharedPreferences getSharedPreferences(Activity activity) {
         return android.preference.PreferenceManager.getDefaultSharedPreferences(activity);
     }
 
@@ -26,7 +26,7 @@ public class PreferenceManager {
      * @param activity Actividad de la que queremos el editor de preferencias
      * @return Editor de preferencias
      */
-    static private SharedPreferences.Editor getEditor(Activity activity) {
+    public static SharedPreferences.Editor getEditor(Activity activity) {
         return android.preference.PreferenceManager.getDefaultSharedPreferences(activity).edit();
     }
 

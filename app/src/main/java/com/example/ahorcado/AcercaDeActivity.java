@@ -2,11 +2,9 @@ package com.example.ahorcado;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +27,9 @@ public class AcercaDeActivity extends ActionBarActivity {
         ((TextView)findViewById(R.id.tv_github)).setTypeface(tf);
         ((TextView)findViewById(R.id.tv_github_antorof)).setTypeface(tf);
         ((TextView)findViewById(R.id.tv_github_carranza)).setTypeface(tf);
+        ((TextView)findViewById(R.id.tv_github_url)).setTypeface(tf);
+        ((TextView)findViewById(R.id.tv_github_antorof_url)).setTypeface(tf);
+        ((TextView)findViewById(R.id.tv_github_carranza_url)).setTypeface(tf);
         ((TextView)findViewById(R.id.tv_version)).setTypeface(tf);
 
         View.OnClickListener linkClickListener = new View.OnClickListener() {
@@ -36,13 +37,13 @@ public class AcercaDeActivity extends ActionBarActivity {
             public void onClick(View view) {
                 String dir_url = "";
                 switch (view.getId()){
-                    case R.id.tv_github:
+                    case R.id.tv_github_url:
                             dir_url = "https://github.com/MakingAppsES/Ahorcado";
                         break;
-                    case R.id.tv_github_antorof:
+                    case R.id.tv_github_antorof_url:
                         dir_url = "https://github.com/antorof";
                         break;
-                    case R.id.tv_github_carranza:
+                    case R.id.tv_github_carranza_url:
                         dir_url = "https://github.com/Carranza";
                         break;
                 }
@@ -52,9 +53,9 @@ public class AcercaDeActivity extends ActionBarActivity {
             }
         };
 
-        findViewById(R.id.tv_github).setOnClickListener(linkClickListener);
-        findViewById(R.id.tv_github_antorof).setOnClickListener(linkClickListener);
-        findViewById(R.id.tv_github_carranza).setOnClickListener(linkClickListener);
+        findViewById(R.id.tv_github_url).setOnClickListener(linkClickListener);
+        findViewById(R.id.tv_github_antorof_url).setOnClickListener(linkClickListener);
+        findViewById(R.id.tv_github_carranza_url).setOnClickListener(linkClickListener);
     }
 
 
@@ -83,6 +84,6 @@ public class AcercaDeActivity extends ActionBarActivity {
 
         MainActivity.reproducirSonido(R.raw.pagination, this);
 
-        overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
+        overridePendingTransition(R.anim.top_in, R.anim.top_out);
     }
 }

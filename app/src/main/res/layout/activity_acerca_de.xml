@@ -53,19 +53,19 @@
         android:layout_marginTop="@dimen/activity_vertical_margin"/>
 
     <TextView
-        android:id="@+id/tv_github_antorof"
-        android:text="@string/about_antorof_txt"
+        android:id="@+id/tv_github_url"
+        android:text="@string/about_github_url"
         android:layout_below="@id/tv_github"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="@dimen/activity_vertical_margin"/>
+        android:textColor="@color/darkblue"/>
 
     <TextView
-        android:id="@+id/tv_github_carranza"
-        android:text="@string/about_carranza_txt"
-        android:layout_below="@id/tv_github_antorof"
+        android:id="@+id/tv_github_antorof"
+        android:text="@string/about_antorof_txt"
+        android:layout_below="@id/tv_github_url"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -73,9 +73,39 @@
         android:layout_marginTop="@dimen/activity_vertical_margin"/>
 
     <TextView
+        android:id="@+id/tv_github_antorof_url"
+        android:text="@string/about_antorof_url"
+        android:layout_below="@id/tv_github_antorof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textColor="@color/darkblue"/>
+
+    <TextView
+        android:id="@+id/tv_github_carranza"
+        android:text="@string/about_carranza_txt"
+        android:layout_below="@id/tv_github_antorof_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/activity_vertical_margin"/>
+
+    <TextView
+        android:id="@+id/tv_github_carranza_url"
+        android:text="@string/about_carranza_url"
+        android:layout_below="@id/tv_github_carranza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textColor="@color/darkblue"/>
+
+    <TextView
         android:id="@+id/tv_version"
         android:text="@string/about_version_txt"
-        android:layout_below="@id/tv_github_carranza"
+        android:layout_below="@id/tv_github_carranza_url"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

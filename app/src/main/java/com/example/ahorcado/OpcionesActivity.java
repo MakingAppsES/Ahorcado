@@ -41,6 +41,6 @@ public class OpcionesActivity extends ActionBarActivity {
 
         MainActivity.reproducirSonido(R.raw.pagination, this);
 
-        overridePendingTransition(R.anim.top_in, R.anim.top_out);
+        overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
     }
 }

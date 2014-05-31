@@ -96,7 +96,7 @@ public class MainActivity extends ActionBarActivity {
 
         reproducirSonido(R.raw.pagination, this);
 
-        overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
+        overridePendingTransition(R.anim.top_in, R.anim.top_out);
     }
 
     public void acercaDe(View view) {
@@ -104,7 +104,7 @@ public class MainActivity extends ActionBarActivity {
 
         reproducirSonido(R.raw.pagination, this);
 
-        overridePendingTransition(R.anim.top_in, R.anim.top_out);
+        overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
     }
 
     public void toggleSonido(View view) {
