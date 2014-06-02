@@ -1,8 +1,10 @@
 package com.example.ahorcado;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -11,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -74,6 +77,12 @@ public class GameActivity extends ActionBarActivity {
             @Override
             public void onClick(View view) {
                 // Toast.makeText(GameActivity.this,((TextView) view).getText(), Toast.LENGTH_SHORT).show();
+
+
+                if (((TextView) view).getText().toString().equals("z")) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.wordreference.com/es/en/translation.asp?spen="+palabraActual.getEspaniol()));
+                    startActivity(intent);
+                }
 
                 comprobarLetra((TextView) view);
             }
