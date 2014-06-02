@@ -57,9 +57,8 @@ public class GameDialog extends ClearDialog {
         btn_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            activity.finish();
-            activity.overridePendingTransition(R.anim.right_in, R.anim.right_out);
-            GameDialog.this.dismiss();
+                activity.onBackPressed();
+                GameDialog.this.dismiss();
             }
         });
 
