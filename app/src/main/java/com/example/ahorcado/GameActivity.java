@@ -161,7 +161,7 @@ public class GameActivity extends ActionBarActivity {
             if (nuevoProgreso.equals(solucion)) {
                 // GANA
                 System.out.print("entro");
-                new GameDialog(this,false).show();
+                new GameDialog(this, "¡Has ganado!", false).show();
             }
 
             // visualizacion del proceso
@@ -181,7 +181,7 @@ public class GameActivity extends ActionBarActivity {
 
             if (fallos == FALLOS) {
                 System.out.print("entro");
-                new GameDialog(this, true).show();
+                new GameDialog(this, "Ooops!", false).show();
             }
         }
     }

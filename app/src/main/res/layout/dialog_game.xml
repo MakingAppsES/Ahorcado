@@ -7,18 +7,29 @@
     android:background="@drawable/square_paper_background">
 
     <TextView
+        android:id="@+id/tv_tittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Wualaaa"
+        android:textColor="@android:color/black"
         android:textSize="26sp"/>
 
     <Button
-        android:id="@+id/btn_nada"
+        android:id="@+id/btn_again"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/main_button_green"
-        android:textSize="26sp"
-        android:text="Nada"/>
+        android:textSize="20sp"
+        android:text="Jugar otra vez"/>
+
+    <Button
+        android:id="@+id/btn_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/main_button_yellow"
+        android:textSize="20sp"
+        android:text="Menú"/>
+
 </LinearLayout>
