@@ -3,6 +3,7 @@ package com.example.ahorcado;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +24,7 @@ public class GameDialog extends ClearDialog {
         TextView tv_tittle = (TextView) findViewById(R.id.tv_tittle);
         Button btn_again = (Button) findViewById(R.id.btn_again);
         Button btn_menu = (Button) findViewById(R.id.btn_menu);
+        TextView btn_wr = (TextView) findViewById(R.id.txt_wr);
 
         tv_tittle.setTypeface(tf);
         btn_again.setTypeface(tf);
@@ -33,19 +35,36 @@ public class GameDialog extends ClearDialog {
         btn_again.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.startActivity(new Intent(getContext(), GameActivity.class));
-                activity.finish();
-                GameDialog.this.dismiss();
+            Intent intent = new Intent(getContext(), GameActivity.class);
+
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+
+            activity.startActivity(intent);
+            activity.overridePendingTransition(0,0);
+            activity.finish();
+
+            GameDialog.this.dismiss();
             }
         });
         btn_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.finish();
-                activity.overridePendingTransition(R.anim.right_in, R.anim.right_out);
-                GameDialog.this.dismiss();
+            activity.finish();
+            activity.overridePendingTransition(R.anim.right_in, R.anim.right_out);
+            GameDialog.this.dismiss();
             }
         });
+
+        btn_wr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            Palabra p = ((GameActivity) activity).getPalabraActual();
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.wordreference.com/es/en/translation.asp?spen=" + p.getEspaniol()));
+
+            activity.startActivity(intent);
+            }
+        });
+
     }
 
     public GameDialog(Activity context, String tittle) {

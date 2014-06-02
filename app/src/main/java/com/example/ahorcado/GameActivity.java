@@ -78,12 +78,6 @@ public class GameActivity extends ActionBarActivity {
             public void onClick(View view) {
                 // Toast.makeText(GameActivity.this,((TextView) view).getText(), Toast.LENGTH_SHORT).show();
 
-
-                if (((TextView) view).getText().toString().equals("z")) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.wordreference.com/es/en/translation.asp?spen="+palabraActual.getEspaniol()));
-                    startActivity(intent);
-                }
-
                 comprobarLetra((TextView) view);
             }
         };
@@ -109,6 +103,10 @@ public class GameActivity extends ActionBarActivity {
 
         palabraEspaniol.setText(palabraActual.getEspaniol());
         palabraIngles.setText(palabraActual.palabraToGuiones());
+    }
+
+    public Palabra getPalabraActual() {
+        return palabraActual;
     }
 
     @Override
