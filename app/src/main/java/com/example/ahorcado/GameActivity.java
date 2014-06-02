@@ -78,6 +78,8 @@ public class GameActivity extends ActionBarActivity {
             public void onClick(View view) {
                 // Toast.makeText(GameActivity.this,((TextView) view).getText(), Toast.LENGTH_SHORT).show();
 
+                ((TextView) view).setOnClickListener(null);
+
                 comprobarLetra((TextView) view);
             }
         };
@@ -159,7 +161,7 @@ public class GameActivity extends ActionBarActivity {
             if (nuevoProgreso.equals(solucion)) {
                 // GANA
                 System.out.print("entro");
-                new GameDialog(this, "¡Has ganado!", false).show();
+                new GameDialog(this, "¡Has acertado!", false).show();
             }
 
             // visualizacion del proceso
