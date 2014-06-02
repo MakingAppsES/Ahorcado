@@ -72,8 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/main_button_green"
-            android:text="sonido"
+            android:background="@drawable/btn_sound_on"
             android:onClick="toggleSonido"/>
 
     </LinearLayout>

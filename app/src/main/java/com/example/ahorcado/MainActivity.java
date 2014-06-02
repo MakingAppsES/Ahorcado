@@ -53,8 +53,8 @@ public class MainActivity extends ActionBarActivity {
             PreferenceManager.putBoolean(KEY_SONIDO,true,this);
             sonidoActivo = true;
         }
-        btnSonido.setBackgroundResource(sonidoActivo ? R.drawable.main_button_green :
-                R.drawable.main_button_red);
+        btnSonido.setBackgroundResource(sonidoActivo ? R.drawable.btn_sound_on :
+                R.drawable.btn_sound_off);
     }
 
     @Override
@@ -119,8 +119,8 @@ public class MainActivity extends ActionBarActivity {
             sonidoActivo = true;
         }
 
-        btnSonido.setBackgroundResource(sonidoActivo ? R.drawable.main_button_red :
-                R.drawable.main_button_green);
+        btnSonido.setBackgroundResource(sonidoActivo ? R.drawable.btn_sound_off :
+                R.drawable.btn_sound_on);
         PreferenceManager.putBoolean(KEY_SONIDO, !sonidoActivo, this);
     }
 
