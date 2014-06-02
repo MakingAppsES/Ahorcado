@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class GameActivity extends ActionBarActivity {
 
-    private static final int FALLOS = 7;
+    public static final int FALLOS = 7;
 
     private View.OnClickListener clickListenerLetras;
     private ArrayList<TextView> botonesLetras;
@@ -109,6 +109,9 @@ public class GameActivity extends ActionBarActivity {
 
     public Palabra getPalabraActual() {
         return palabraActual;
+    }
+    public int getFallosActuales() {
+        return fallos;
     }
 
     @Override

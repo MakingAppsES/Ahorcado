@@ -14,6 +14,14 @@
         android:textColor="@android:color/black"
         android:textSize="26sp"/>
 
+    <TextView
+        android:id="@+id/tv_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/darkgreen"
+        android:textSize="20sp"/>
+
     <Button
         android:id="@+id/btn_again"
         android:layout_width="wrap_content"
@@ -36,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="World Reference"
+        android:text="World Reference\u2197"
         android:id="@+id/txt_wr"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/activity_vertical_margin"

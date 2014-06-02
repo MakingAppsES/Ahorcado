@@ -22,15 +22,23 @@ public class GameDialog extends ClearDialog {
         Typeface tf = Typeface.createFromAsset(getContext().getAssets(), fontPath);
 
         TextView tv_tittle = (TextView) findViewById(R.id.tv_tittle);
+        TextView tv_word = (TextView) findViewById(R.id.tv_word);
         Button btn_again = (Button) findViewById(R.id.btn_again);
         Button btn_menu = (Button) findViewById(R.id.btn_menu);
         TextView btn_wr = (TextView) findViewById(R.id.txt_wr);
 
         tv_tittle.setTypeface(tf);
+        tv_word.setTypeface(tf);
         btn_again.setTypeface(tf);
         btn_menu.setTypeface(tf);
+        btn_wr.setTypeface(tf);
 
         tv_tittle.setText(tittle);
+        tv_word.setText((((GameActivity) activity).getPalabraActual()).getIngles());
+
+        tv_word.setTextColor((((GameActivity) activity)).getFallosActuales()==GameActivity.FALLOS ?
+                activity.getResources().getColor(R.color.darkred) :
+                activity.getResources().getColor(R.color.darkgreen));
 
         btn_again.setOnClickListener(new View.OnClickListener() {
             @Override
