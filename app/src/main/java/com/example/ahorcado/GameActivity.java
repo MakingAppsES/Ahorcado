@@ -2,6 +2,7 @@ package com.example.ahorcado;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -173,6 +174,7 @@ public class GameActivity extends ActionBarActivity {
         }
         else {
             textView.setTextColor(Color.RED);
+            textView.setPaintFlags(textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
             fallos++;
 
