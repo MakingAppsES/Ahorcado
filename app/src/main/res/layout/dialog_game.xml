@@ -45,11 +45,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="World Reference\u2197"
+        android:text="WordReference\u2197"
         android:id="@+id/txt_wr"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:textColor="@color/darkblue"
-        android:onClick="worldReference"/>
+        android:textColor="@color/darkblue"/>
 
 </LinearLayout>
