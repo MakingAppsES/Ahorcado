@@ -134,8 +134,8 @@ public class GameActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.game, menu);
-
+        //getMenuInflater().inflate(R.menu.game, menu);
+        new PauseDialog(this).show();
         return true;
     }
 
@@ -152,6 +152,10 @@ public class GameActivity extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
+        new PauseDialog(this).show();
+    }
+
+    public void volverAtras() {
         super.onBackPressed();
 
         MainActivity.reproducirSonido(R.raw.pagination, this);
