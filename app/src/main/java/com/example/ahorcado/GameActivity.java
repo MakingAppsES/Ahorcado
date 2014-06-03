@@ -29,6 +29,7 @@ public class GameActivity extends ActionBarActivity {
     private Palabra palabraActual;
     private int fallos;
     private GameDialog gameDialog;
+    private boolean finDePartida = false; // Evita que pulsemos otras letras si somos rapidos
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,50 +144,51 @@ public class GameActivity extends ActionBarActivity {
     }
 
     public void comprobarLetra(TextView textView) {
-        if (palabraActual.getIngles().contains(textView.getText())) {
-            textView.setTextColor(Color.GREEN);
+        if (!finDePartida) {
+            if (palabraActual.getIngles().contains(textView.getText())) {
+                textView.setTextColor(Color.GREEN);
 
-            String progreso = palabraIngles.getText().toString();
+                String progreso = palabraIngles.getText().toString();
 
-            // normalizacion del progreso
-            progreso = normalizar(progreso);
+                // normalizacion del progreso
+                progreso = normalizar(progreso);
 
-            String solucion = palabraActual.getIngles();
+                String solucion = palabraActual.getIngles();
 
-            String nuevoProgreso = "";
-            char letra;
-            for (int i = 0; i < progreso.length(); i++) {
-                letra = textView.getText().charAt(0);
-                nuevoProgreso += (solucion.charAt(i) == letra) ? letra : progreso.charAt(i);
-            }
+                String nuevoProgreso = "";
+                char letra;
+                for (int i = 0; i < progreso.length(); i++) {
+                    letra = textView.getText().charAt(0);
+                    nuevoProgreso += (solucion.charAt(i) == letra) ? letra : progreso.charAt(i);
+                }
 
-            MainActivity.reproducirSonido(R.raw.acierto, this);
+                MainActivity.reproducirSonido(R.raw.acierto, this);
 
-            if (nuevoProgreso.equals(solucion)) {
-                // GANA
-                System.out.print("entro");
-                new GameDialog(this, "¡Has acertado!", false).show();
-            }
+                if (nuevoProgreso.equals(solucion)) {
+                    // GANA
+                    finDePartida = true;
+                    new GameDialog(this, "¡Has acertado!", false).show();
+                }
 
-            // visualizacion del proceso
-            nuevoProgreso = visualizar(nuevoProgreso);
-            palabraIngles.setText(nuevoProgreso);
-        }
-        else {
-            textView.setTextColor(Color.RED);
-            textView.setPaintFlags(textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                // visualizacion del proceso
+                nuevoProgreso = visualizar(nuevoProgreso);
+                palabraIngles.setText(nuevoProgreso);
+            } else {
+                textView.setTextColor(Color.RED);
+                textView.setPaintFlags(textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
-            fallos++;
+                fallos++;
 
-            ImageView img_ahorcado = (ImageView) findViewById(R.id.img_ahorcado);
-            int id_imagen_fallo = getResources().getIdentifier("com.example.ahorcado:drawable/ahorcado_"+fallos, null, null);
-            img_ahorcado.setImageResource(id_imagen_fallo);
+                ImageView img_ahorcado = (ImageView) findViewById(R.id.img_ahorcado);
+                int id_imagen_fallo = getResources().getIdentifier("com.example.ahorcado:drawable/ahorcado_" + fallos, null, null);
+                img_ahorcado.setImageResource(id_imagen_fallo);
 
-            MainActivity.reproducirSonido(R.raw.error, this);
+                MainActivity.reproducirSonido(R.raw.error, this);
 
-            if (fallos == FALLOS) {
-                System.out.print("entro");
-                new GameDialog(this, "Ooops!", false).show();
+                if (fallos == FALLOS) {
+                    finDePartida = true;
+                    new GameDialog(this, "¡Ooops!", false).show();
+                }
             }
         }
     }
