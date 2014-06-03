@@ -30,6 +30,8 @@ public class GameActivity extends ActionBarActivity {
     private int fallos;
     private GameDialog gameDialog;
     private boolean finDePartida = false; // Evita que pulsemos otras letras si somos rapidos
+    private int nivelSeleccionado;
+    private boolean esAcumulativo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,15 @@ public class GameActivity extends ActionBarActivity {
 
         fallos = 0;
 
-        //gameDialog = new GameDialog();
+        Bundle extras = getIntent().getExtras();
+        // Obtenemos datos enviados en el intent.
+        if (extras != null) {
+            nivelSeleccionado = extras.getInt(MainActivity.KEY_NIVEL);
+            esAcumulativo = extras.getBoolean(MainActivity.KEY_ACUMULATIVO);
+        }else{
+            nivelSeleccionado = BaseDatos.B1;
+            esAcumulativo = false;
+        }
 
         // Lista de botones
         botonesLetras = new ArrayList<TextView>();
@@ -103,7 +113,7 @@ public class GameActivity extends ActionBarActivity {
         // Inicializacion de la base de datos
         BaseDatos bd = new BaseDatos(this);
 
-        palabraActual = bd.queryPalabraAleatoria();
+        palabraActual = bd.queryPalabraAleatoria(nivelSeleccionado, esAcumulativo);
 
         palabraEspaniol.setText(palabraActual.getEspaniol());
         palabraIngles.setText(palabraActual.palabraToGuiones());
@@ -114,6 +124,12 @@ public class GameActivity extends ActionBarActivity {
     }
     public int getFallosActuales() {
         return fallos;
+    }
+    public int getNivelSeleccionado() {
+        return nivelSeleccionado;
+    }
+    public boolean getEsAcumuladivo() {
+        return esAcumulativo;
     }
 
     @Override

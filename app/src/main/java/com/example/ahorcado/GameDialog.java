@@ -44,14 +44,15 @@ public class GameDialog extends ClearDialog {
             @Override
             public void onClick(View view) {
             Intent intent = new Intent(getContext(), GameActivity.class);
+            intent.putExtra(MainActivity.KEY_NIVEL, ((GameActivity)activity).getNivelSeleccionado());
+            intent.putExtra(MainActivity.KEY_ACUMULATIVO, ((GameActivity)activity).getEsAcumuladivo());
 
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 
+            GameDialog.this.dismiss();
             activity.startActivity(intent);
             activity.overridePendingTransition(0,0);
             activity.finish();
-
-            GameDialog.this.dismiss();
             }
         });
         btn_menu.setOnClickListener(new View.OnClickListener() {

@@ -17,6 +17,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends ActionBarActivity {
     public static String KEY_SONIDO = "SONIDO";
+    public static final String KEY_NIVEL = "nivel";
+    public static final String KEY_ACUMULATIVO = "acum";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,11 +78,12 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void newGame(View view) {
-        startActivity(new Intent(this, GameActivity.class));
-
-        reproducirSonido(R.raw.pagination, this);
-
-        overridePendingTransition(R.anim.left_in, R.anim.left_out);
+//        startActivity(new Intent(this, GameActivity.class));
+//
+//        reproducirSonido(R.raw.pagination, this);
+//
+//        overridePendingTransition(R.anim.left_in, R.anim.left_out);
+        new DifficultyDialog(this).show();
     }
 
     public void resultados(View view) {
