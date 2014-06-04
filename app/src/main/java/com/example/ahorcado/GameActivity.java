@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -135,8 +136,17 @@ public class GameActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //getMenuInflater().inflate(R.menu.game, menu);
-        new PauseDialog(this).show();
+        //new PauseDialog(this).show();
         return true;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ( keyCode == KeyEvent.KEYCODE_MENU ) {
+            new PauseDialog(this).show();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override
