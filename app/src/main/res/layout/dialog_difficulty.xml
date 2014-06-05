@@ -46,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/main_button_red"
+        android:textColor="@android:color/white"
         android:text="ADVANCED"/>
 
     <Button
@@ -54,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/main_button_red"
+        android:textColor="@android:color/white"
         android:text="ADVANCED acum."/>
 
 </LinearLayout>
