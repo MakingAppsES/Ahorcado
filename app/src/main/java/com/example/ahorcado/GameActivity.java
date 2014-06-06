@@ -1,11 +1,8 @@
 package com.example.ahorcado;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -15,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -27,6 +23,7 @@ public class GameActivity extends ActionBarActivity {
     private ArrayList<TextView> botonesLetras;
     private TextView palabraEspaniol;
     private TextView palabraIngles;
+    private String progreso;
     private Palabra palabraActual;
     private int fallos;
     private GameDialog gameDialog;
@@ -117,7 +114,18 @@ public class GameActivity extends ActionBarActivity {
         palabraActual = bd.queryPalabraAleatoria(nivelSeleccionado, esAcumulativo);
 
         palabraEspaniol.setText(palabraActual.getEspaniol());
-        palabraIngles.setText(palabraActual.palabraToGuiones());
+
+        progreso = "";
+        for(int i = 0; i<palabraActual.getIngles().length(); i++) {
+            if (palabraActual.getIngles().charAt(i) == ' ')
+                progreso += ' ';
+            else if (palabraActual.getIngles().charAt(i) == '-')
+                progreso += '-';
+            else
+                progreso += '_';
+        }
+
+        palabraIngles.setText(visualizar(progreso));
     }
 
     public Palabra getPalabraActual() {
@@ -178,13 +186,7 @@ public class GameActivity extends ActionBarActivity {
             if (palabraActual.getIngles().contains(textView.getText())) {
                 textView.setTextColor(Color.GREEN);
 
-                String progreso = palabraIngles.getText().toString();
-
-                // normalizacion del progreso
-                progreso = normalizar(progreso);
-
                 String solucion = palabraActual.getIngles();
-
                 String nuevoProgreso = "";
                 char letra;
                 for (int i = 0; i < progreso.length(); i++) {
@@ -192,6 +194,7 @@ public class GameActivity extends ActionBarActivity {
                     nuevoProgreso += (solucion.charAt(i) == letra) ? letra : progreso.charAt(i);
                 }
 
+                progreso = nuevoProgreso;
                 MainActivity.reproducirSonido(R.raw.acierto, this);
 
                 if (nuevoProgreso.equals(solucion)) {
@@ -202,8 +205,7 @@ public class GameActivity extends ActionBarActivity {
                 }
 
                 // visualizacion del proceso
-                nuevoProgreso = visualizar(nuevoProgreso);
-                palabraIngles.setText(nuevoProgreso);
+                palabraIngles.setText(visualizar(progreso));
             } else {
                 textView.setTextColor(Color.RED);
                 textView.setPaintFlags(textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
@@ -227,36 +229,14 @@ public class GameActivity extends ActionBarActivity {
 
     /* ------------------------------------------------------------------------------------------ */
 
-    private String normalizar(String s) {
-
-        String resultado = "";
-
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) != ' ') {
-                if(s.charAt(i) == '\t') {
-                    resultado += " ";
-                }
-                else {
-                    resultado += s.charAt(i);
-                }
-            }
-        }
-
-        return resultado;
-    }
-
     private String visualizar(String s) {
 
         String resultado = "";
 
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) != ' ') {
-                resultado += s.charAt(i) + " ";
-            }
-            else {
-                resultado += '\t';
-            }
+        for (int i = 0; i < s.length()-1; i++) {
+            resultado += s.charAt(i) + " ";
         }
+        resultado += s.charAt(s.length()-1);
 
         return resultado;
     }
