@@ -31,19 +31,22 @@ public class BaseDatos extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase database) {
-        Log.v(BaseDatos.class.getName(), "Creando Base de Datos");
+        // Log.v(BaseDatos.class.getName(), "Creando Base de Datos");
 
         database.execSQL(CREATE_VOCABULARIO);
 
         // Base de datos inicial
+        // loadB1();
         insertPalabra(database,"Perro","Dog",B1);
         insertPalabra(database,"Casa","House",B1);
         insertPalabra(database,"Gato","Cat",B1);
 
+        // loadB2();
         insertPalabra(database,"Enfoque","Approach",B2);
         insertPalabra(database,"Ansioso","Eager",B2);
         insertPalabra(database,"Importante","Significant",B2);
 
+        // loadC1();
         insertPalabra(database,"Descolorido","Faded",C1);
         insertPalabra(database,"Alacena","Larder",C1);
         insertPalabra(database,"Espolvorear","Sprinkle",C1);
@@ -135,4 +138,24 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         return palabra;
     }
+
+    /* ------------------------------------------------------------------------------------------ */
+    /* - Carga de diccionarios de vocabulario a partir de las listas oficiales de Cambridge ----- */
+    /* ------------------------------------------------------------------------------------------ */
+
+    private void loadB1() {
+
+    }
+
+    private void loadB2() {
+
+    }
+
+    private void loadC1() {
+
+    }
+
+    /* ------------------------------------------------------------------------------------------ */
+    /* ------------------------------------------------------------------------------------------ */
+    /* ------------------------------------------------------------------------------------------ */
 }
