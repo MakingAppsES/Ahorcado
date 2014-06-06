@@ -149,7 +149,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "aluminio", "aluminium", B1);
         insertPalabra(database, "cualquiera", "anybody", B1);
         insertPalabra(database, "artista", "artist", B1);
-        insertPalabra(database, "'escenario, de fondo'", "background", B1);
+        insertPalabra(database, "escenario, de fondo", "background", B1);
         insertPalabra(database, "pájaro", "bird", B1);
         insertPalabra(database, "ciego", "blind", B1);
         insertPalabra(database, "rebotar", "bounce", B1);
@@ -205,8 +205,8 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "programar", "program", B1);
         insertPalabra(database, "recibir", "receive", B1);
         insertPalabra(database, "grabación", "recording", B1);
-        insertPalabra(database, "'sonar, tocar'", "ring", B1);
-        insertPalabra(database, "'caucho, hule'", "rubber", B1);
+        insertPalabra(database, "sonar, toca", "ring", B1);
+        insertPalabra(database, "caucho, hule", "rubber", B1);
         insertPalabra(database, "red de seguridad", "safety net", B1);
         insertPalabra(database, "secretario", "secretary", B1);
         insertPalabra(database, "sentarse", "sit", B1);
@@ -377,7 +377,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "pronto", "soon", B1);
         insertPalabra(database, "portavoz", "spokesman", B1);
         insertPalabra(database, "taxi", "taxi", B1);
-        insertPalabra(database, "'tráfico, tránsito'", "traffic", B1);
+        insertPalabra(database, "tráfico, tránsito", "traffic", B1);
         insertPalabra(database, "transporte", "transport", B1);
         insertPalabra(database, "a no ser que", "unless", B1);
         insertPalabra(database, "apartamento", "apartment", B1);
@@ -459,7 +459,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "planeador", "glider", B1);
         insertPalabra(database, "gobierno", "government", B1);
         insertPalabra(database, "castigar", "ground", B1);
-        insertPalabra(database, "'crecer, cultivar'", "grow", B1);
+        insertPalabra(database, "crecer, cultivar", "grow", B1);
         insertPalabra(database, "adulto", "grown-up", B1);
         insertPalabra(database, "quimono", "kimono", B1);
         insertPalabra(database, "cuchillo", "knife", B1);
@@ -472,7 +472,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "festival de música", "music festival", B1);
         insertPalabra(database, "nido", "nest", B1);
         insertPalabra(database, "doloroso", "painful", B1);
-        insertPalabra(database, "'pensionado, jubilado'", "pensioner", B1);
+        insertPalabra(database, "pensionado, jubilado", "pensioner", B1);
         insertPalabra(database, "permiso", "permission", B1);
         insertPalabra(database, "fotografiar", "photograph", B1);
         insertPalabra(database, "de correos", "postal", B1);
@@ -557,7 +557,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "después", "afterwards", B1);
         insertPalabra(database, "en total", "altogether", B1);
         insertPalabra(database, "animal", "animal", B1);
-        insertPalabra(database, "'plátano, banano'", "banana", B1);
+        insertPalabra(database, "plátano, banano", "banana", B1);
         insertPalabra(database, "comenzar", "begin", B1);
         insertPalabra(database, "bomba", "bomb", B1);
         insertPalabra(database, "traer", "bring", B1);
@@ -612,7 +612,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "bomba nuclear", "nuclear bomb", B1);
         insertPalabra(database, "ofrecer", "offer", B1);
         insertPalabra(database, "gasolina", "petrol", B1);
-        insertPalabra(database, "'fuerte, poderoso'", "powerful", B1);
+        insertPalabra(database, "fuerte, poderoso", "powerful", B1);
         insertPalabra(database, "precio", "price", B1);
         insertPalabra(database, "proporción", "proportion", B1);
         insertPalabra(database, "recientemente", "recently", B1);
@@ -662,18 +662,18 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "desacuerdo", "disagreement", B1);
         insertPalabra(database, "vivienda", "dwelling", B1);
         insertPalabra(database, "fundamental", "essential", B1);
-        insertPalabra(database, "'complejo, fraccionamiento'", "estate", B1);
+        insertPalabra(database, "complejo, fraccionamiento", "estate", B1);
         insertPalabra(database, "explorar", "explore", B1);
         insertPalabra(database, "instalaciones", "facilities", B1);
         insertPalabra(database, "sentir", "feel", B1);
         insertPalabra(database, "valla", "fence", B1);
-        insertPalabra(database, "'garaje, cochera'", "garage", B1);
+        insertPalabra(database, "garaje, cochera", "garage", B1);
         insertPalabra(database, "abuelo", "grandparent", B1);
         insertPalabra(database, "invitado", "guest", B1);
         insertPalabra(database, "colina", "hill", B1);
         insertPalabra(database, "hotel", "hotel", B1);
-        insertPalabra(database, "'complejo, fraccionamiento'", "housing estate", B1);
-        insertPalabra(database, "'particular, individual'", "individual", B1);
+        insertPalabra(database, "complejo, fraccionamiento", "housing estate", B1);
+        insertPalabra(database, "particular, individual", "individual", B1);
         insertPalabra(database, "herir", "injure", B1);
         insertPalabra(database, "jacuzzi", "jacuzzi", B1);
         insertPalabra(database, "vida", "lifetime", B1);
@@ -685,7 +685,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "casa semiadosada", "semi-detached house", B1);
         insertPalabra(database, "sudoroso", "sweaty", B1);
         insertPalabra(database, "temperatura", "temperature", B1);
-        insertPalabra(database, "'tienda de campaña, carpa'", "tent", B1);
+        insertPalabra(database, "tienda de campaña, carpa", "tent", B1);
         insertPalabra(database, "casa adosada", "terraced house", B1);
         insertPalabra(database, "turista", "tourist", B1);
         insertPalabra(database, "aceptar", "accept", B1);
@@ -710,7 +710,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "hembra", "female", B1);
         insertPalabra(database, "genio", "genius", B1);
         insertPalabra(database, "fantasma", "ghost", B1);
-        insertPalabra(database, "'nota, calificación'", "grade", B1);
+        insertPalabra(database, "nota, calificación", "grade", B1);
         insertPalabra(database, "adivinar", "guess", B1);
         insertPalabra(database, "tratar", "handle", B1);
         insertPalabra(database, "salir", "hang out", B1);
@@ -721,7 +721,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "rompecabezas", "jigsaw", B1);
         insertPalabra(database, "lógico", "logical", B1);
         insertPalabra(database, "arreglárselas", "manage", B1);
-        insertPalabra(database, "'nota, calificación'", "mark", B1);
+        insertPalabra(database, "nota, calificación", "mark", B1);
         insertPalabra(database, "matemático", "mathematical", B1);
         insertPalabra(database, "memorable", "memorable", B1);
         insertPalabra(database, "memorizar", "memorise", B1);
@@ -765,7 +765,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "envidiar", "envy", B1);
         insertPalabra(database, "igual de", "equally", B1);
         insertPalabra(database, "fragmento", "extract", B1);
-        insertPalabra(database, "'aficionado, fan'", "fan", B1);
+        insertPalabra(database, "aficionado, fan", "fan", B1);
         insertPalabra(database, "flauta", "flute", B1);
         insertPalabra(database, "generación", "generation", B1);
         insertPalabra(database, "auriculares", "headphones", B1);
@@ -781,7 +781,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "letra", "lyrics", B1);
         insertPalabra(database, "mayoría", "majority", B1);
         insertPalabra(database, "milagro", "miracle", B1);
-        insertPalabra(database, "'perdido, faltante'", "missing", B1);
+        insertPalabra(database, "perdido, faltante", "missing", B1);
         insertPalabra(database, "musical", "musical", B1);
         insertPalabra(database, "instrumento musical", "musical instrument", B1);
         insertPalabra(database, "músico", "musician", B1);
@@ -840,7 +840,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "hipopótamo", "hippopotamus", B1);
         insertPalabra(database, "enfermedad", "illness", B1);
         insertPalabra(database, "inyección", "injection", B1);
-        insertPalabra(database, "'herido, lesionado'", "injured", B1);
+        insertPalabra(database, "herido, lesionado", "injured", B1);
         insertPalabra(database, "secuestrar", "kidnap", B1);
         insertPalabra(database, "escalera", "ladder", B1);
         insertPalabra(database, "león", "lion", B1);
@@ -859,7 +859,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "pastilla", "pill", B1);
         insertPalabra(database, "política", "politics", B1);
         insertPalabra(database, "impedir", "prevent", B1);
-        insertPalabra(database, "'tirar, jalar'", "pull", B1);
+        insertPalabra(database, "tirar, jalar", "pull", B1);
         insertPalabra(database, "radioactivo", "radioactive", B1);
         insertPalabra(database, "radio", "radium", B1);
         insertPalabra(database, "reconocimiento", "recognition", B1);
@@ -884,7 +884,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "vehículo", "vehicle", B1);
         insertPalabra(database, "vértebra", "vertebra", B1);
         insertPalabra(database, "víctima", "victim", B1);
-        insertPalabra(database, "'batería, pila'", "battery", B1);
+        insertPalabra(database, "batería, pila", "battery", B1);
         insertPalabra(database, "lector de CD", "CD drive", B1);
         insertPalabra(database, "chatear", "chat", B1);
         insertPalabra(database, "sala de chat", "chat room", B1);
@@ -906,7 +906,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "guardar", "save", B1);
         insertPalabra(database, "buscar", "search", B1);
         insertPalabra(database, "buscador", "search engine", B1);
-        insertPalabra(database, "'software, programa'", "software", B1);
+        insertPalabra(database, "software, programa", "software", B1);
         insertPalabra(database, "navegar", "surf", B1);
         insertPalabra(database, "charla", "talk", B1);
         insertPalabra(database, "touch pad", "touch pad", B1);
@@ -1046,7 +1046,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "bienvenido", "welcome", B1);
         insertPalabra(database, "efecto invernadero", "greenhouse effect", B1);
         insertPalabra(database, "accidente", "accident", B1);
-        insertPalabra(database, "'alcanzar, tomar'", "catch", B1);
+        insertPalabra(database, "alcanzar, tomar", "catch", B1);
         insertPalabra(database, "correcto", "correct", B1);
         insertPalabra(database, "esperar", "hope", B1);
         insertPalabra(database, "imaginar", "imagine", B1);
