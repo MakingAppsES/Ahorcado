@@ -116,13 +116,27 @@ public class GameActivity extends ActionBarActivity {
         palabraEspaniol.setText(palabraActual.getEspaniol());
 
         progreso = "";
+        boolean parentesis = false;
         for(int i = 0; i<palabraActual.getIngles().length(); i++) {
-            if (palabraActual.getIngles().charAt(i) == ' ')
-                progreso += ' ';
-            else if (palabraActual.getIngles().charAt(i) == '-')
-                progreso += '-';
-            else
-                progreso += '_';
+            if(parentesis){
+                progreso += palabraActual.getIngles().charAt(i);
+            }
+            else {
+                if (palabraActual.getIngles().charAt(i) == ' ')
+                    progreso += ' ';
+                else if (palabraActual.getIngles().charAt(i) == '-')
+                    progreso += '-';
+                else if (palabraActual.getIngles().charAt(i) == '(') {
+                    progreso += '(';
+                    parentesis = true;
+                }
+                else if (palabraActual.getIngles().charAt(i) == ')') {
+                    progreso += ')';
+                    parentesis = false;
+                }
+                else
+                    progreso += '_';
+            }
         }
 
         palabraIngles.setText(visualizar(progreso));
