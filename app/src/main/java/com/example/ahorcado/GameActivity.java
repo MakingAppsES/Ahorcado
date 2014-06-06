@@ -198,6 +198,7 @@ public class GameActivity extends ActionBarActivity {
                     // GANA
                     finDePartida = true;
                     new GameDialog(this, "¡Has acertado!", false).show();
+                    almacenarEstadisticas(MainActivity.KEY_WON);
                 }
 
                 // visualizacion del proceso
@@ -218,6 +219,7 @@ public class GameActivity extends ActionBarActivity {
                 if (fallos == FALLOS) {
                     finDePartida = true;
                     new GameDialog(this, "¡Ooops!", false).show();
+                    almacenarEstadisticas(MainActivity.KEY_LOST);
                 }
             }
         }
@@ -257,5 +259,23 @@ public class GameActivity extends ActionBarActivity {
         }
 
         return resultado;
+    }
+
+    private void almacenarEstadisticas(String resultado){
+        int nivel = palabraActual.getDificultad();
+        String str_nivel = "";
+        switch (nivel){
+            case BaseDatos.B1: str_nivel = MainActivity.KEY_PET; break;
+            case BaseDatos.B2: str_nivel = MainActivity.KEY_FIRST; break;
+            case BaseDatos.C1: str_nivel = MainActivity.KEY_ADVANCED; break;
+        }
+
+        int contador;
+        try {
+            contador = PreferenceManager.getInt(str_nivel+resultado, this);
+        } catch (Exception e) {
+            contador = 0;
+        }
+        PreferenceManager.putInt(str_nivel+resultado,contador+1,this);
     }
 }

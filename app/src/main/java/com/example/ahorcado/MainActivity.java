@@ -19,6 +19,11 @@ public class MainActivity extends ActionBarActivity {
     public static String KEY_SONIDO = "SONIDO";
     public static final String KEY_NIVEL = "nivel";
     public static final String KEY_ACUMULATIVO = "acum";
+    public static final String KEY_PET = "FET";
+    public static final String KEY_FIRST = "FST";
+    public static final String KEY_ADVANCED = "ADV";
+    public static final String KEY_WON = "WON";
+    public static final String KEY_LOST = "LST";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
