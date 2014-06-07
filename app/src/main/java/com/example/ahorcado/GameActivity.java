@@ -34,7 +34,14 @@ public class GameActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        Boolean querty = false;
+        try {
+            querty = PreferenceManager.getBoolean(MainActivity.KEY_KEYBOARD, this);
+        } catch (Exception e) {
+            PreferenceManager.putBoolean(MainActivity.KEY_KEYBOARD,false,this);
+            querty = false;
+        }
+        setContentView(querty ? R.layout.activity_game_qwerty : R.layout.activity_game);
 
         fallos = 0;
 

@@ -46,6 +46,16 @@
             android:onClick="resultados"/>
 
         <Button
+            android:id="@+id/btn_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/main_button_yellow"
+            android:textSize="26sp"
+            android:text="@string/btn_settings_text"
+            android:onClick="opciones"/>
+
+        <Button
             android:id="@+id/btn_about"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,17 +65,6 @@
             android:textSize="26sp"
             android:text="@string/btn_about_text"
             android:onClick="acercaDe"/>
-
-        <Button
-            android:id="@+id/btn_settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/main_button_yellow"
-            android:textSize="26sp"
-            android:text="@string/btn_settings_text"
-            android:onClick="opciones"
-            android:visibility="invisible"/>
 
         <Button
             android:id="@+id/btn_sound"

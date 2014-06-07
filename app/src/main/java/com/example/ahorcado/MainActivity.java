@@ -24,6 +24,7 @@ public class MainActivity extends ActionBarActivity {
     public static final String KEY_ADVANCED = "ADV";
     public static final String KEY_WON = "WON";
     public static final String KEY_LOST = "LST";
+    public static final String KEY_KEYBOARD = "KBD";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
