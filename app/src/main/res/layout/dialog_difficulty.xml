@@ -32,13 +32,13 @@
         android:background="@drawable/main_button_yellow"
         android:text="FIRST"/>
 
-    <Button
-        android:id="@+id/btn_b2_acum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/main_button_yellow"
-        android:text="FIRST acumulativo"/>
+    <!--<Button-->
+        <!--android:id="@+id/btn_b2_acum"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:background="@drawable/main_button_yellow"-->
+        <!--android:text="FIRST acumulativo"/>-->
 
     <Button
         android:id="@+id/btn_c1_excl"
@@ -49,13 +49,13 @@
         android:textColor="@android:color/white"
         android:text="ADVANCED"/>
 
-    <Button
-        android:id="@+id/btn_c1_acum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/main_button_red"
-        android:textColor="@android:color/white"
-        android:text="ADVANCED acum."/>
+    <!--<Button-->
+        <!--android:id="@+id/btn_c1_acum"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:background="@drawable/main_button_red"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:text="ADVANCED acum."/>-->
 
 </LinearLayout>

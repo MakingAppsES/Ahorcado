@@ -133,6 +133,8 @@ public class GameActivity extends ActionBarActivity {
                     progreso += ' ';
                 else if (palabraActual.getIngles().charAt(i) == '-')
                     progreso += '-';
+                else if (palabraActual.getIngles().charAt(i) == '/')
+                    progreso += '/';
                 else if (palabraActual.getIngles().charAt(i) == '(') {
                     progreso += '(';
                     parentesis = true;

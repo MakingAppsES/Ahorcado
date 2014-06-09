@@ -27,16 +27,16 @@ public class DifficultyDialog extends ClearDialog {
         TextView tv_difficulty = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_difficulty);
         Button btn_b1          = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_b1);
         Button btn_b2_excl     = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_b2_excl);
-        Button btn_b2_acum     = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_b2_acum);
+//        Button btn_b2_acum     = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_b2_acum);
         Button btn_c1_excl     = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_c1_excl);
-        Button btn_c1_acum     = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_c1_acum);
+//        Button btn_c1_acum     = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_c1_acum);
 
         tv_difficulty.setTypeface(tf);
         btn_b1.setTypeface(tf);
         btn_b2_excl.setTypeface(tf);
-        btn_b2_acum.setTypeface(tf);
+//        btn_b2_acum.setTypeface(tf);
         btn_c1_excl.setTypeface(tf);
-        btn_c1_acum.setTypeface(tf);
+//        btn_c1_acum.setTypeface(tf);
 
         btn_b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,13 +54,13 @@ public class DifficultyDialog extends ClearDialog {
             }
         });
 
-        btn_b2_acum.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DifficultyDialog.this.dismiss();
-                iniciarPartida(BaseDatos.B2, true);
-            }
-        });
+//        btn_b2_acum.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                DifficultyDialog.this.dismiss();
+//                iniciarPartida(BaseDatos.B2, true);
+//            }
+//        });
 
         btn_c1_excl.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,13 +70,13 @@ public class DifficultyDialog extends ClearDialog {
             }
         });
 
-        btn_c1_acum.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DifficultyDialog.this.dismiss();
-                iniciarPartida(BaseDatos.C1, true);
-            }
-        });
+//        btn_c1_acum.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                DifficultyDialog.this.dismiss();
+//                iniciarPartida(BaseDatos.C1, true);
+//            }
+//        });
     }
 
     private void iniciarPartida(int nivel, boolean acumulativo) {
