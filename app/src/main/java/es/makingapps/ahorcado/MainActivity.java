@@ -28,6 +28,7 @@ public class MainActivity extends ActionBarActivity {
     public static final String KEY_WON = "WON";
     public static final String KEY_LOST = "LST";
     public static final String KEY_KEYBOARD = "KBD";
+    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +70,35 @@ public class MainActivity extends ActionBarActivity {
 
         // SetUp anuncios
         try {
-            AdView adView = (AdView) findViewById(R.id.adView);
+            adView = (AdView) findViewById(R.id.adView);
             AdRequest adRequest = new AdRequest.Builder().build();
             adView.loadAd(adRequest);
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode,resultCode,data);
+
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    sleep(1000);
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            adView.setVisibility(View.VISIBLE);
+                        }
+                    });
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
     }
 
     @Override
@@ -116,7 +140,10 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void acercaDe(View view) {
-        startActivity(new Intent(this, AcercaDeActivity.class));
+        adView.setVisibility(View.INVISIBLE);
+        startActivityForResult(new Intent(this, AcercaDeActivity.class), 1);
+
+        //startActivity(new Intent(this, AcercaDeActivity.class));
 
         reproducirSonido(es.makingapps.ahorcado.R.raw.pagination, this);
 
