@@ -17,6 +17,7 @@ public class ResultadosActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(es.makingapps.ahorcado.R.layout.activity_resultados);
         int ganadasPet, perdidasPet, ganadasFirst, perdidasFirst, ganadasAdvanced, perdidasAdvanced;
+        int porcentajePet, porcentajeFirst, porcentajeAdvance;
 
         // Carga de la fuente
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/FFF_Tusj.ttf");
@@ -84,9 +85,25 @@ public class ResultadosActivity extends ActionBarActivity {
             perdidasAdvanced = 0;
         }
 
-        tv_pet.setText("Ganadas: "+ganadasPet+"\nPerdidas: "+perdidasPet);
-        tv_first.setText("Ganadas: "+ganadasFirst+"\nPerdidas: "+perdidasFirst);
-        tv_advanced.setText("Ganadas: "+ganadasAdvanced+"\nPerdidas: "+perdidasAdvanced);
+        try {
+            porcentajePet = ganadasPet / (ganadasPet + perdidasPet);
+        } catch (Exception e) {
+            porcentajePet = 0;
+        }
+        try {
+            porcentajeFirst = ganadasFirst / (ganadasFirst + perdidasFirst);
+        } catch (Exception e) {
+            porcentajeFirst = 0;
+        }
+        try {
+            porcentajeAdvance = ganadasAdvanced / (ganadasAdvanced + perdidasAdvanced);
+        } catch (Exception e) {
+            porcentajeAdvance = 0;
+        }
+
+        tv_pet.setText("Ganadas: "+ganadasPet+"\nPerdidas: "+perdidasPet+"\nPorcentaje de aciertos: "+ porcentajePet +" %");
+        tv_first.setText("Ganadas: "+ganadasFirst+"\nPerdidas: "+perdidasFirst+"\nPorcentaje de aciertos: "+ porcentajeFirst +" %");
+        tv_advanced.setText("Ganadas: "+ganadasAdvanced+"\nPerdidas: "+perdidasAdvanced+"\nPorcentaje de aciertos: "+ porcentajeAdvance +" %");
     }
 
 
