@@ -17,7 +17,7 @@ public class ResultadosActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(es.makingapps.ahorcado.R.layout.activity_resultados);
         int ganadasPet, perdidasPet, ganadasFirst, perdidasFirst, ganadasAdvanced, perdidasAdvanced;
-        int porcentajePet, porcentajeFirst, porcentajeAdvance;
+        float porcentajePet, porcentajeFirst, porcentajeAdvance;
 
         // Carga de la fuente
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/FFF_Tusj.ttf");
