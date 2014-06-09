@@ -13,6 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 
 public class MainActivity extends ActionBarActivity {
@@ -63,6 +66,15 @@ public class MainActivity extends ActionBarActivity {
         }
         btnSonido.setBackgroundResource(sonidoActivo ? es.makingapps.ahorcado.R.drawable.btn_sound_on :
                 es.makingapps.ahorcado.R.drawable.btn_sound_off);
+
+        // SetUp anuncios
+        try {
+            AdView adView = (AdView) findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -84,11 +96,6 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void newGame(View view) {
-//        startActivity(new Intent(this, GameActivity.class));
-//
-//        reproducirSonido(R.raw.pagination, this);
-//
-//        overridePendingTransition(R.anim.left_in, R.anim.left_out);
         new DifficultyDialog(this).show();
     }
 

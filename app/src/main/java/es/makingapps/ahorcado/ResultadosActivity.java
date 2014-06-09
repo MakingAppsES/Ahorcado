@@ -101,9 +101,9 @@ public class ResultadosActivity extends ActionBarActivity {
             porcentajeAdvance = 0;
         }
 
-        tv_pet.setText("Ganadas: "+ganadasPet+"\nPerdidas: "+perdidasPet+"\nPorcentaje de aciertos: "+ porcentajePet +" %");
-        tv_first.setText("Ganadas: "+ganadasFirst+"\nPerdidas: "+perdidasFirst+"\nPorcentaje de aciertos: "+ porcentajeFirst +" %");
-        tv_advanced.setText("Ganadas: "+ganadasAdvanced+"\nPerdidas: "+perdidasAdvanced+"\nPorcentaje de aciertos: "+ porcentajeAdvance +" %");
+        tv_pet.setText("Ganadas: "+ganadasPet+"\nPerdidas: "+perdidasPet+"\nPorcentaje de aciertos: "+ porcentajePet +"%");
+        tv_first.setText("Ganadas: "+ganadasFirst+"\nPerdidas: "+perdidasFirst+"\nPorcentaje de aciertos: "+ porcentajeFirst +"%");
+        tv_advanced.setText("Ganadas: "+ganadasAdvanced+"\nPerdidas: "+perdidasAdvanced+"\nPorcentaje de aciertos: "+ porcentajeAdvance +"%");
     }
 
 
