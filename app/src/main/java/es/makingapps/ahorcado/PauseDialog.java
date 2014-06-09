@@ -1,4 +1,4 @@
-package com.example.ahorcado;
+package es.makingapps.ahorcado;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,15 +19,15 @@ public class PauseDialog extends ClearDialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_pause);
+        setContentView(es.makingapps.ahorcado.R.layout.dialog_pause);
 
         String fontPath = "fonts/FFF_Tusj.ttf";
         Typeface tf = Typeface.createFromAsset(getContext().getAssets(), fontPath);
 
-        TextView tv_pause   = (TextView) findViewById(R.id.tv_pause);
-        Button btn_continue = (Button) findViewById(R.id.btn_continue);
-        Button btn_again    = (Button) findViewById(R.id.btn_again);
-        Button btn_menu     = (Button) findViewById(R.id.btn_menu);
+        TextView tv_pause   = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_pause);
+        Button btn_continue = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_continue);
+        Button btn_again    = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_again);
+        Button btn_menu     = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_menu);
 
         tv_pause.setTypeface(tf);
         btn_continue.setTypeface(tf);

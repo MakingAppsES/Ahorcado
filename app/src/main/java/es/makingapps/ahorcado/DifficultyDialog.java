@@ -1,9 +1,8 @@
-package com.example.ahorcado;
+package es.makingapps.ahorcado;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,17 +19,17 @@ public class DifficultyDialog extends ClearDialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_difficulty);
+        setContentView(es.makingapps.ahorcado.R.layout.dialog_difficulty);
 
         String fontPath = "fonts/FFF_Tusj.ttf";
         Typeface tf = Typeface.createFromAsset(getContext().getAssets(), fontPath);
 
-        TextView tv_difficulty = (TextView) findViewById(R.id.tv_difficulty);
-        Button btn_b1          = (Button) findViewById(R.id.btn_b1);
-        Button btn_b2_excl     = (Button) findViewById(R.id.btn_b2_excl);
-        Button btn_b2_acum     = (Button) findViewById(R.id.btn_b2_acum);
-        Button btn_c1_excl     = (Button) findViewById(R.id.btn_c1_excl);
-        Button btn_c1_acum     = (Button) findViewById(R.id.btn_c1_acum);
+        TextView tv_difficulty = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_difficulty);
+        Button btn_b1          = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_b1);
+        Button btn_b2_excl     = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_b2_excl);
+        Button btn_b2_acum     = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_b2_acum);
+        Button btn_c1_excl     = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_c1_excl);
+        Button btn_c1_acum     = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_c1_acum);
 
         tv_difficulty.setTypeface(tf);
         btn_b1.setTypeface(tf);
@@ -87,8 +86,8 @@ public class DifficultyDialog extends ClearDialog {
 
         activity.startActivity(intent);
 
-        MainActivity.reproducirSonido(R.raw.pagination, activity);
+        MainActivity.reproducirSonido(es.makingapps.ahorcado.R.raw.pagination, activity);
 
-        activity.overridePendingTransition(R.anim.left_in, R.anim.left_out);
+        activity.overridePendingTransition(es.makingapps.ahorcado.R.anim.left_in, es.makingapps.ahorcado.R.anim.left_out);
     }
 }

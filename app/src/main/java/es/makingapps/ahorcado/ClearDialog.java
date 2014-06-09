@@ -1,4 +1,4 @@
-package com.example.ahorcado;
+package es.makingapps.ahorcado;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -21,11 +21,11 @@ public class ClearDialog extends Dialog {
     }
 
     public ClearDialog(Context context) {
-        super(context, R.style.CustomDialogStyle);
+        super(context, es.makingapps.ahorcado.R.style.CustomDialogStyle);
     }
 
     public ClearDialog(Context context, boolean cancelable) {
-        super(context, R.style.CustomDialogStyle);
+        super(context, es.makingapps.ahorcado.R.style.CustomDialogStyle);
         this.setCancelable(cancelable);
     }
 }

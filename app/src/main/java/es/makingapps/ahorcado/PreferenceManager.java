@@ -1,4 +1,4 @@
-package com.example.ahorcado;
+package es.makingapps.ahorcado;
 
 import android.app.Activity;
 import android.content.SharedPreferences;

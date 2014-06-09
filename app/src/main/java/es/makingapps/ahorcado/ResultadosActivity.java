@@ -1,8 +1,6 @@
-package com.example.ahorcado;
+package es.makingapps.ahorcado;
 
-import android.content.Intent;
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,27 +15,27 @@ public class ResultadosActivity extends ActionBarActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resultados);
+        setContentView(es.makingapps.ahorcado.R.layout.activity_resultados);
         int ganadasPet, perdidasPet, ganadasFirst, perdidasFirst, ganadasAdvanced, perdidasAdvanced;
 
         // Carga de la fuente
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/FFF_Tusj.ttf");
 
-        TextView tv_pet = (TextView) findViewById(R.id.tv_pet_result);
-        TextView tv_first = (TextView) findViewById(R.id.tv_first_result);
-        TextView tv_advanced = (TextView) findViewById(R.id.tv_advanced_result);
+        TextView tv_pet = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_pet_result);
+        TextView tv_first = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_first_result);
+        TextView tv_advanced = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_advanced_result);
 
-        ((TextView)findViewById(R.id.tv_tittle_statistics)).setTypeface(tf);
-        ((TextView)findViewById(R.id.tv_pet)).setTypeface(tf);
-        ((TextView)findViewById(R.id.tv_first)).setTypeface(tf);
-        ((TextView)findViewById(R.id.tv_advanced)).setTypeface(tf);
+        ((TextView)findViewById(es.makingapps.ahorcado.R.id.tv_tittle_statistics)).setTypeface(tf);
+        ((TextView)findViewById(es.makingapps.ahorcado.R.id.tv_pet)).setTypeface(tf);
+        ((TextView)findViewById(es.makingapps.ahorcado.R.id.tv_first)).setTypeface(tf);
+        ((TextView)findViewById(es.makingapps.ahorcado.R.id.tv_advanced)).setTypeface(tf);
         tv_pet.setTypeface(tf);
         tv_first.setTypeface(tf);
         tv_advanced.setTypeface(tf);
-        ((Button)findViewById(R.id.btn_delete_results)).setTypeface(tf);
+        ((Button)findViewById(es.makingapps.ahorcado.R.id.btn_delete_results)).setTypeface(tf);
 
         // OnClick para resetear los resultados
-        ((Button)findViewById(R.id.btn_delete_results)).setOnClickListener(new View.OnClickListener() {
+        ((Button)findViewById(es.makingapps.ahorcado.R.id.btn_delete_results)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 PreferenceManager.putInt(MainActivity.KEY_PET+MainActivity.KEY_WON, 0, ResultadosActivity.this);
@@ -102,7 +100,7 @@ public class ResultadosActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == es.makingapps.ahorcado.R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -112,8 +110,8 @@ public class ResultadosActivity extends ActionBarActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        MainActivity.reproducirSonido(R.raw.pagination, this);
+        MainActivity.reproducirSonido(es.makingapps.ahorcado.R.raw.pagination, this);
 
-        overridePendingTransition(R.anim.left_in, R.anim.left_out);
+        overridePendingTransition(es.makingapps.ahorcado.R.anim.left_in, es.makingapps.ahorcado.R.anim.left_out);
     }
 }

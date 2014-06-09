@@ -1,4 +1,4 @@
-package com.example.ahorcado;
+package es.makingapps.ahorcado;
 
 import android.content.ContentValues;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.example.ahorcado;
+package es.makingapps.ahorcado;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,16 +16,16 @@ public class GameDialog extends ClearDialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_game);
+        setContentView(es.makingapps.ahorcado.R.layout.dialog_game);
 
         String fontPath = "fonts/FFF_Tusj.ttf";
         Typeface tf = Typeface.createFromAsset(getContext().getAssets(), fontPath);
 
-        TextView tv_tittle = (TextView) findViewById(R.id.tv_tittle);
-        TextView tv_word = (TextView) findViewById(R.id.tv_word);
-        Button btn_again = (Button) findViewById(R.id.btn_again);
-        Button btn_menu = (Button) findViewById(R.id.btn_menu);
-        TextView btn_wr = (TextView) findViewById(R.id.txt_wr);
+        TextView tv_tittle = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_tittle);
+        TextView tv_word = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_word);
+        Button btn_again = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_again);
+        Button btn_menu = (Button) findViewById(es.makingapps.ahorcado.R.id.btn_menu);
+        TextView btn_wr = (TextView) findViewById(es.makingapps.ahorcado.R.id.txt_wr);
 
         tv_tittle.setTypeface(tf);
         tv_word.setTypeface(tf);
@@ -37,8 +37,8 @@ public class GameDialog extends ClearDialog {
         tv_word.setText((((GameActivity) activity).getPalabraActual()).getIngles());
 
         tv_word.setTextColor((((GameActivity) activity)).getFallosActuales()==GameActivity.FALLOS ?
-                activity.getResources().getColor(R.color.darkred) :
-                activity.getResources().getColor(R.color.darkgreen));
+                activity.getResources().getColor(es.makingapps.ahorcado.R.color.darkred) :
+                activity.getResources().getColor(es.makingapps.ahorcado.R.color.darkgreen));
 
         btn_again.setOnClickListener(new View.OnClickListener() {
             @Override

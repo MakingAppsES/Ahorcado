@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ahorcado">
+    package="es.makingapps.ahorcado">
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.ahorcado.MainActivity"
+            android:name="es.makingapps.ahorcado.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -18,26 +18,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.ahorcado.GameActivity"
+            android:name="es.makingapps.ahorcado.GameActivity"
             android:label="@string/title_activity_game"
-            android:parentActivityName="com.example.ahorcado.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
         <activity
-            android:name="com.example.ahorcado.ResultadosActivity"
+            android:name="es.makingapps.ahorcado.ResultadosActivity"
             android:label="@string/title_activity_resultados"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="com.example.ahorcado.OpcionesActivity"
+            android:name="es.makingapps.ahorcado.OpcionesActivity"
             android:label="@string/title_activity_opciones"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="com.example.ahorcado.AcercaDeActivity"
+            android:name="es.makingapps.ahorcado.AcercaDeActivity"
             android:label="@string/title_activity_acerca_de"
             android:screenOrientation="portrait">
         </activity>

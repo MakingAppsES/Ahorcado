@@ -1,4 +1,4 @@
-package com.example.ahorcado;
+package es.makingapps.ahorcado;
 
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -41,7 +41,7 @@ public class GameActivity extends ActionBarActivity {
             PreferenceManager.putBoolean(MainActivity.KEY_KEYBOARD,false,this);
             querty = false;
         }
-        setContentView(querty ? R.layout.activity_game_qwerty : R.layout.activity_game);
+        setContentView(querty ? es.makingapps.ahorcado.R.layout.activity_game_qwerty : es.makingapps.ahorcado.R.layout.activity_game);
 
         fallos = 0;
 
@@ -58,36 +58,36 @@ public class GameActivity extends ActionBarActivity {
         // Lista de botones
         botonesLetras = new ArrayList<TextView>();
         // Rellenar la lista de botonesLetras
-        botonesLetras.add((TextView) findViewById(R.id.txt_a));
-        botonesLetras.add((TextView) findViewById(R.id.txt_b));
-        botonesLetras.add((TextView) findViewById(R.id.txt_c));
-        botonesLetras.add((TextView) findViewById(R.id.txt_d));
-        botonesLetras.add((TextView) findViewById(R.id.txt_e));
-        botonesLetras.add((TextView) findViewById(R.id.txt_f));
-        botonesLetras.add((TextView) findViewById(R.id.txt_g));
-        botonesLetras.add((TextView) findViewById(R.id.txt_h));
-        botonesLetras.add((TextView) findViewById(R.id.txt_i));
-        botonesLetras.add((TextView) findViewById(R.id.txt_j));
-        botonesLetras.add((TextView) findViewById(R.id.txt_k));
-        botonesLetras.add((TextView) findViewById(R.id.txt_l));
-        botonesLetras.add((TextView) findViewById(R.id.txt_m));
-        botonesLetras.add((TextView) findViewById(R.id.txt_n));
-        botonesLetras.add((TextView) findViewById(R.id.txt_o));
-        botonesLetras.add((TextView) findViewById(R.id.txt_p));
-        botonesLetras.add((TextView) findViewById(R.id.txt_q));
-        botonesLetras.add((TextView) findViewById(R.id.txt_r));
-        botonesLetras.add((TextView) findViewById(R.id.txt_s));
-        botonesLetras.add((TextView) findViewById(R.id.txt_t));
-        botonesLetras.add((TextView) findViewById(R.id.txt_u));
-        botonesLetras.add((TextView) findViewById(R.id.txt_v));
-        botonesLetras.add((TextView) findViewById(R.id.txt_w));
-        botonesLetras.add((TextView) findViewById(R.id.txt_x));
-        botonesLetras.add((TextView) findViewById(R.id.txt_y));
-        botonesLetras.add((TextView) findViewById(R.id.txt_z));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_a));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_b));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_c));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_d));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_e));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_f));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_g));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_h));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_i));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_j));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_k));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_l));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_m));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_n));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_o));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_p));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_q));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_r));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_s));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_t));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_u));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_v));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_w));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_x));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_y));
+        botonesLetras.add((TextView) findViewById(es.makingapps.ahorcado.R.id.txt_z));
 
         // TextView de las palabras
-        palabraEspaniol = (TextView) findViewById(R.id.txt_palabra_espaniol);
-        palabraIngles = (TextView) findViewById(R.id.txt_palabra_ingles);
+        palabraEspaniol = (TextView) findViewById(es.makingapps.ahorcado.R.id.txt_palabra_espaniol);
+        palabraIngles = (TextView) findViewById(es.makingapps.ahorcado.R.id.txt_palabra_ingles);
 
         // ClickListener para las letras:
         clickListenerLetras = new View.OnClickListener() {
@@ -182,7 +182,7 @@ public class GameActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
+        if (id == es.makingapps.ahorcado.R.id.action_settings) {
             return true;
         }
 
@@ -197,9 +197,9 @@ public class GameActivity extends ActionBarActivity {
     public void volverAtras() {
         super.onBackPressed();
 
-        MainActivity.reproducirSonido(R.raw.pagination, this);
+        MainActivity.reproducirSonido(es.makingapps.ahorcado.R.raw.pagination, this);
 
-        overridePendingTransition(R.anim.right_in, R.anim.right_out);
+        overridePendingTransition(es.makingapps.ahorcado.R.anim.right_in, es.makingapps.ahorcado.R.anim.right_out);
     }
 
     public void comprobarLetra(TextView textView) {
@@ -216,7 +216,7 @@ public class GameActivity extends ActionBarActivity {
                 }
 
                 progreso = nuevoProgreso;
-                MainActivity.reproducirSonido(R.raw.acierto, this);
+                MainActivity.reproducirSonido(es.makingapps.ahorcado.R.raw.acierto, this);
 
                 if (nuevoProgreso.equals(solucion)) {
                     // GANA
@@ -233,11 +233,11 @@ public class GameActivity extends ActionBarActivity {
 
                 fallos++;
 
-                ImageView img_ahorcado = (ImageView) findViewById(R.id.img_ahorcado);
-                int id_imagen_fallo = getResources().getIdentifier("com.example.ahorcado:drawable/ahorcado_" + fallos, null, null);
+                ImageView img_ahorcado = (ImageView) findViewById(es.makingapps.ahorcado.R.id.img_ahorcado);
+                int id_imagen_fallo = getResources().getIdentifier("es.makingapps.ahorcado:drawable/ahorcado_" + fallos, null, null);
                 img_ahorcado.setImageResource(id_imagen_fallo);
 
-                MainActivity.reproducirSonido(R.raw.error, this);
+                MainActivity.reproducirSonido(es.makingapps.ahorcado.R.raw.error, this);
 
                 if (fallos == FALLOS) {
                     finDePartida = true;
