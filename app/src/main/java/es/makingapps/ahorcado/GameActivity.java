@@ -38,8 +38,8 @@ public class GameActivity extends ActionBarActivity {
         try {
             querty = PreferenceManager.getBoolean(MainActivity.KEY_KEYBOARD, this);
         } catch (Exception e) {
-            PreferenceManager.putBoolean(MainActivity.KEY_KEYBOARD,false,this);
-            querty = false;
+            PreferenceManager.putBoolean(MainActivity.KEY_KEYBOARD,true,this);
+            querty = true;
         }
         setContentView(querty ? es.makingapps.ahorcado.R.layout.activity_game_qwerty : es.makingapps.ahorcado.R.layout.activity_game);
 

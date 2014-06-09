@@ -21,9 +21,9 @@ public class ResultadosActivity extends ActionBarActivity {
         // Carga de la fuente
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/FFF_Tusj.ttf");
 
-        TextView tv_pet = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_pet_result);
-        TextView tv_first = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_first_result);
-        TextView tv_advanced = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_advanced_result);
+        final TextView tv_pet = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_pet_result);
+        final TextView tv_first = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_first_result);
+        final TextView tv_advanced = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_advanced_result);
 
         ((TextView)findViewById(es.makingapps.ahorcado.R.id.tv_tittle_statistics)).setTypeface(tf);
         ((TextView)findViewById(es.makingapps.ahorcado.R.id.tv_pet)).setTypeface(tf);
@@ -44,7 +44,10 @@ public class ResultadosActivity extends ActionBarActivity {
                 PreferenceManager.putInt(MainActivity.KEY_FIRST+MainActivity.KEY_LOST, 0, ResultadosActivity.this);
                 PreferenceManager.putInt(MainActivity.KEY_ADVANCED+MainActivity.KEY_WON, 0, ResultadosActivity.this);
                 PreferenceManager.putInt(MainActivity.KEY_ADVANCED + MainActivity.KEY_LOST, 0, ResultadosActivity.this);
-                ResultadosActivity.this.onBackPressed();
+
+                tv_pet.setText("Ganadas: "+0+"\nPerdidas: "+0);
+                tv_first.setText("Ganadas: "+0+"\nPerdidas: "+0);
+                tv_advanced.setText("Ganadas: "+0+"\nPerdidas: "+0);
             }
         });
 

@@ -27,8 +27,8 @@ public class OpcionesActivity extends ActionBarActivity {
         try {
             querty = PreferenceManager.getBoolean(MainActivity.KEY_KEYBOARD, this);
         } catch (Exception e) {
-            PreferenceManager.putBoolean(MainActivity.KEY_KEYBOARD,false,this);
-            querty = false;
+            PreferenceManager.putBoolean(MainActivity.KEY_KEYBOARD,true,this);
+            querty = true;
         }
 
         cambiarTextViewKeyboard(querty);
