@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="es.makingapps.ahorcado.MainActivity">
+
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-6287554714610247/8737402018"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:layout_above="@+id/adView">
+
+        <TextView
+            android:id="@+id/tv_tittle_main"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="60sp"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="@string/app_name"/>
+
+        <Button
+            android:id="@+id/btn_new_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/main_button_green"
+            android:textSize="40sp"
+            android:text="@string/btn_new_game_text"
+            android:onClick="newGame"/>
+
+        <Button
+            android:id="@+id/btn_statistics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/main_button_red"
+            android:textColor="@android:color/white"
+            android:textSize="40sp"
+            android:text="@string/btn_statistics_text"
+            android:onClick="resultados"/>
+
+        <Button
+            android:id="@+id/btn_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/main_button_yellow"
+            android:textSize="40sp"
+            android:text="@string/btn_settings_text"
+            android:onClick="opciones"/>
+
+        <Button
+            android:id="@+id/btn_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/main_button_blue"
+            android:textColor="@android:color/white"
+            android:textSize="40sp"
+            android:text="@string/btn_about_text"
+            android:onClick="acercaDe"/>
+
+        <Button
+            android:id="@+id/btn_sound"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/btn_sound_on"
+            android:onClick="toggleSonido"/>
+
+    </LinearLayout>
+</RelativeLayout>
