@@ -13,6 +13,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 
 public class GameActivity extends ActionBarActivity {
@@ -109,7 +112,7 @@ public class GameActivity extends ActionBarActivity {
         // Aplicando la fuente y el tamanio a los botones
         for(TextView b : botonesLetras) {
             b.setTypeface(tf);
-            b.setTextSize(TypedValue.COMPLEX_UNIT_SP, 26);
+            //b.setTextSize(TypedValue.COMPLEX_UNIT_SP, 26);
             b.setOnClickListener(clickListenerLetras);
         }
         palabraEspaniol.setTypeface(tf);
@@ -148,7 +151,16 @@ public class GameActivity extends ActionBarActivity {
             }
         }
 
-        palabraIngles.setText(visualizar(progreso));
+        palabraIngles.setText( progreso );
+
+        // SetUp anuncios
+        try {
+            AdView adView = (AdView) findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public Palabra getPalabraActual() {
@@ -228,7 +240,7 @@ public class GameActivity extends ActionBarActivity {
                 }
 
                 // visualizacion del proceso
-                palabraIngles.setText(visualizar(progreso));
+                palabraIngles.setText( progreso );
             } else {
                 textView.setTextColor(Color.RED);
                 textView.setPaintFlags(textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
@@ -252,6 +264,11 @@ public class GameActivity extends ActionBarActivity {
 
     /* ------------------------------------------------------------------------------------------ */
 
+    /**
+     * @deprecated Ya no se utiliza porque se ha modificado la fuente para que las barras bajas
+     *             sean m&aacute;s peque&ntilde;as.
+     */
+    @Deprecated
     private String visualizar(String s) {
 
         String resultado = "";

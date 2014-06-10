@@ -88,7 +88,6 @@ public class MainActivity extends ActionBarActivity {
                 try {
                     sleep(1000);
                     runOnUiThread(new Runnable() {
-
                         @Override
                         public void run() {
                             adView.setVisibility(View.VISIBLE);
@@ -177,7 +176,7 @@ public class MainActivity extends ActionBarActivity {
             sonidoActivo = true;
         }
 
-        if( sonidoActivo ){
+        if( sonidoActivo ) {
             MediaPlayer mediaPlayer = MediaPlayer.create(activity.getApplicationContext(), idSonido);
             mediaPlayer.start();
         }
