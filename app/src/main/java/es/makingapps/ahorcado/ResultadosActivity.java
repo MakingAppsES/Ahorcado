@@ -17,7 +17,7 @@ public class ResultadosActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(es.makingapps.ahorcado.R.layout.activity_resultados);
         int ganadasPet, perdidasPet, ganadasFirst, perdidasFirst, ganadasAdvanced, perdidasAdvanced;
-        float porcentajePet, porcentajeFirst, porcentajeAdvance;
+        int porcentajePet, porcentajeFirst, porcentajeAdvance;
 
         // Carga de la fuente
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/FFF_Tusj.ttf");
@@ -86,17 +86,17 @@ public class ResultadosActivity extends ActionBarActivity {
         }
 
         try {
-            porcentajePet = ganadasPet / (ganadasPet + perdidasPet);
+            porcentajePet = (int) (ganadasPet*100.0f / (ganadasPet + perdidasPet));
         } catch (Exception e) {
             porcentajePet = 0;
         }
         try {
-            porcentajeFirst = ganadasFirst / (ganadasFirst + perdidasFirst);
+            porcentajeFirst = (int) (ganadasFirst*100.0f / (ganadasFirst + perdidasFirst));
         } catch (Exception e) {
             porcentajeFirst = 0;
         }
         try {
-            porcentajeAdvance = ganadasAdvanced / (ganadasAdvanced + perdidasAdvanced);
+            porcentajeAdvance = (int) (ganadasAdvanced*100.0f / (ganadasAdvanced + perdidasAdvanced));
         } catch (Exception e) {
             porcentajeAdvance = 0;
         }
