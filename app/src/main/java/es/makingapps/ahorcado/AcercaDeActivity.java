@@ -62,7 +62,7 @@ public class AcercaDeActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(es.makingapps.ahorcado.R.menu.acerca_de, menu);
+        //getMenuInflater().inflate(es.makingapps.ahorcado.R.menu.acerca_de, menu);
         return true;
     }
 
