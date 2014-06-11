@@ -152,12 +152,24 @@ public class GameActivity extends ActionBarActivity {
                 progreso += palabraActual.getIngles().charAt(i);
             }
             else {
-                if (palabraActual.getIngles().charAt(i) == ' ')
-                    progreso += ' ';
-                else if (palabraActual.getIngles().charAt(i) == '-')
-                    progreso += '-';
-                else if (palabraActual.getIngles().charAt(i) == '/')
-                    progreso += '/';
+//                if (palabraActual.getIngles().charAt(i) == ' ')
+//                    progreso += ' ';
+//                else if (palabraActual.getIngles().charAt(i) == '-')
+//                    progreso += '-';
+//                else if (palabraActual.getIngles().charAt(i) == '/')
+//                    progreso += '/';
+//                else if (palabraActual.getIngles().charAt(i) == '(') {
+//                    progreso += '(';
+//                    parentesis = true;
+//                }
+//                else if (palabraActual.getIngles().charAt(i) == ')') {
+//                    progreso += ')';
+//                    parentesis = false;
+//                }
+//                else
+//                    progreso += '_';
+                if(Character.isLowerCase(palabraActual.getIngles().charAt(i)))
+                    progreso += '_';
                 else if (palabraActual.getIngles().charAt(i) == '(') {
                     progreso += '(';
                     parentesis = true;
@@ -167,7 +179,7 @@ public class GameActivity extends ActionBarActivity {
                     parentesis = false;
                 }
                 else
-                    progreso += '_';
+                    progreso += palabraActual.getIngles().charAt(i);
             }
         }
 
