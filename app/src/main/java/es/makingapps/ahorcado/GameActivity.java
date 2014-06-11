@@ -46,8 +46,6 @@ public class GameActivity extends ActionBarActivity {
         }
         setContentView(querty ? es.makingapps.ahorcado.R.layout.activity_game_qwerty : es.makingapps.ahorcado.R.layout.activity_game);
 
-        fallos = 0;
-
         Bundle extras = getIntent().getExtras();
         // Obtenemos datos enviados en el intent.
         if (extras != null) {
@@ -118,9 +116,31 @@ public class GameActivity extends ActionBarActivity {
         palabraEspaniol.setTypeface(tf);
         palabraIngles.setTypeface(tf);
 
-        // Inicializacion de la base de datos
-        BaseDatos bd = new BaseDatos(this);
+        nuevoJuego();
 
+        // SetUp anuncios
+        try {
+            AdView adView = (AdView) findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void nuevoJuego() {
+        fallos = 0;
+        finDePartida = false;
+
+        for (TextView b : botonesLetras) {
+            b.setTextColor(Color.BLACK);
+            b.setOnClickListener(clickListenerLetras);
+            b.setPaintFlags(b.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+        }
+        ImageView img_ahorcado = (ImageView) findViewById(es.makingapps.ahorcado.R.id.img_ahorcado);
+        img_ahorcado.setImageResource(R.drawable.ahorcado_0);
+
+        BaseDatos bd = new BaseDatos(this);
         palabraActual = bd.queryPalabraAleatoria(nivelSeleccionado, esAcumulativo);
 
         palabraEspaniol.setText(palabraActual.getEspaniol());
@@ -152,15 +172,6 @@ public class GameActivity extends ActionBarActivity {
         }
 
         palabraIngles.setText( progreso );
-
-        // SetUp anuncios
-        try {
-            AdView adView = (AdView) findViewById(R.id.adView);
-            AdRequest adRequest = new AdRequest.Builder().build();
-            adView.loadAd(adRequest);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     public Palabra getPalabraActual() {

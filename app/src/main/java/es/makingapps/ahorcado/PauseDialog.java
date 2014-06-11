@@ -45,15 +45,16 @@ public class PauseDialog extends ClearDialog {
             @Override
             public void onClick(View view) {
                 PauseDialog.this.dismiss();
-                Intent intent = new Intent(getContext(), GameActivity.class);
-                intent.putExtra(MainActivity.KEY_NIVEL, ((GameActivity)activity).getNivelSeleccionado());
-                intent.putExtra(MainActivity.KEY_ACUMULATIVO, ((GameActivity)activity).getEsAcumuladivo());
-
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-
-                activity.startActivity(intent);
-                activity.overridePendingTransition(0,0);
-                activity.finish();
+//                Intent intent = new Intent(getContext(), GameActivity.class);
+//                intent.putExtra(MainActivity.KEY_NIVEL, ((GameActivity)activity).getNivelSeleccionado());
+//                intent.putExtra(MainActivity.KEY_ACUMULATIVO, ((GameActivity)activity).getEsAcumuladivo());
+//
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+//
+//                activity.startActivity(intent);
+//                activity.overridePendingTransition(0,0);
+//                activity.finish();
+                ((GameActivity)activity).nuevoJuego();
             }
         });
 

@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.games.Game;
+
 public class GameDialog extends ClearDialog {
     private String tittle;
     Activity activity;
@@ -43,16 +45,19 @@ public class GameDialog extends ClearDialog {
         btn_again.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Intent intent = new Intent(getContext(), GameActivity.class);
-            intent.putExtra(MainActivity.KEY_NIVEL, ((GameActivity)activity).getNivelSeleccionado());
-            intent.putExtra(MainActivity.KEY_ACUMULATIVO, ((GameActivity)activity).getEsAcumuladivo());
+//            Intent intent = new Intent(getContext(), GameActivity.class);
+//            intent.putExtra(MainActivity.KEY_NIVEL, ((GameActivity)activity).getNivelSeleccionado());
+//            intent.putExtra(MainActivity.KEY_ACUMULATIVO, ((GameActivity)activity).getEsAcumuladivo());
+//
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+//
+//            GameDialog.this.dismiss();
+//            activity.startActivity(intent);
+//            activity.overridePendingTransition(0,0);
+//            activity.finish();
 
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-
-            GameDialog.this.dismiss();
-            activity.startActivity(intent);
-            activity.overridePendingTransition(0,0);
-            activity.finish();
+                ((GameActivity)activity).nuevoJuego();
+                GameDialog.this.dismiss();
             }
         });
         btn_menu.setOnClickListener(new View.OnClickListener() {
