@@ -46,6 +46,12 @@ public class GameActivity extends ActionBarActivity {
         }
         setContentView(querty ? es.makingapps.ahorcado.R.layout.activity_game_qwerty : es.makingapps.ahorcado.R.layout.activity_game);
 
+        String fontName = PreferenceManager.getString(MainActivity.KEY_FONT, this);
+        if (fontName == null) {
+            PreferenceManager.putString(MainActivity.KEY_FONT,"FFF_Tusj.ttf",this);
+            fontName = "FFF_Tusj.ttf";
+        }
+
         Bundle extras = getIntent().getExtras();
         // Obtenemos datos enviados en el intent.
         if (extras != null) {
@@ -102,10 +108,8 @@ public class GameActivity extends ActionBarActivity {
             }
         };
 
-        // Ruta de la fuente
-        String fontPath = "fonts/FFF_Tusj.ttf";
         // Carga de la fuente
-        Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+        Typeface tf = TypeFaceProvider.getTypeFace(this,fontName);
 
         // Aplicando la fuente y el tamanio a los botones
         for(TextView b : botonesLetras) {

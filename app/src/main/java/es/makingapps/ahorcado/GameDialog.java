@@ -20,8 +20,12 @@ public class GameDialog extends ClearDialog {
         super.onCreate(savedInstanceState);
         setContentView(es.makingapps.ahorcado.R.layout.dialog_game);
 
-        String fontPath = "fonts/FFF_Tusj.ttf";
-        Typeface tf = Typeface.createFromAsset(getContext().getAssets(), fontPath);
+        String fontName = PreferenceManager.getString(MainActivity.KEY_FONT, activity);
+        if (fontName == null) {
+            PreferenceManager.putString(MainActivity.KEY_FONT,"FFF_Tusj.ttf",activity);
+            fontName = "FFF_Tusj.ttf";
+        }
+        Typeface tf = TypeFaceProvider.getTypeFace(activity,fontName);
 
         TextView tv_tittle = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_tittle);
         TextView tv_word = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_word);

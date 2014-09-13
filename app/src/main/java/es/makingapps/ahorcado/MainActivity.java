@@ -28,12 +28,19 @@ public class MainActivity extends ActionBarActivity {
     public static final String KEY_WON = "WON";
     public static final String KEY_LOST = "LST";
     public static final String KEY_KEYBOARD = "KBD";
+    public static final String KEY_FONT = "FNT";
     private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(es.makingapps.ahorcado.R.layout.activity_main);
+
+        String fontName = PreferenceManager.getString(MainActivity.KEY_FONT, this);
+        if (fontName == null) {
+            PreferenceManager.putString(MainActivity.KEY_FONT,"FFF_Tusj.ttf",this);
+            fontName = "FFF_Tusj.ttf";
+        }
 
         // Lista de botones
         ArrayList<Button> botones = new ArrayList<Button>();
@@ -43,10 +50,8 @@ public class MainActivity extends ActionBarActivity {
         botones.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_settings));
         botones.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_statistics));
 
-        // Ruta de la fuente
-        String fontPath = "fonts/FFF_Tusj.ttf";
         // Carga de la fuente
-        Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+        Typeface tf = TypeFaceProvider.getTypeFace(this,fontName);
 
         // Aplicando la fuente a los botones
         for(Button b : botones)

@@ -16,8 +16,12 @@ public class OpcionesActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(es.makingapps.ahorcado.R.layout.activity_opciones);
 
-        // Carga de la fuente
-        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/FFF_Tusj.ttf");
+        String fontName = PreferenceManager.getString(MainActivity.KEY_FONT, this);
+        if (fontName == null) {
+            PreferenceManager.putString(MainActivity.KEY_FONT,"FFF_Tusj.ttf",this);
+            fontName = "FFF_Tusj.ttf";
+        }
+        Typeface tf = TypeFaceProvider.getTypeFace(this,fontName);
 
         ((TextView)findViewById(es.makingapps.ahorcado.R.id.tv_tittle_options)).setTypeface(tf);
         ((TextView)findViewById(es.makingapps.ahorcado.R.id.tv_keyboard)).setTypeface(tf);

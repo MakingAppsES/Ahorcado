@@ -18,9 +18,12 @@ public class AcercaDeActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(es.makingapps.ahorcado.R.layout.activity_acerca_de);
 
-        // Aplicamos la fuente
-        String fontPath = "fonts/FFF_Tusj.ttf";
-        Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+        String fontName = PreferenceManager.getString(MainActivity.KEY_FONT, this);
+        if (fontName == null) {
+            PreferenceManager.putString(MainActivity.KEY_FONT,"FFF_Tusj.ttf",this);
+            fontName = "FFF_Tusj.ttf";
+        }
+        Typeface tf = TypeFaceProvider.getTypeFace(this,fontName);
         ((TextView)findViewById(es.makingapps.ahorcado.R.id.tv_tittle_about)).setTypeface(tf);
         ((TextView)findViewById(es.makingapps.ahorcado.R.id.tv_description)).setTypeface(tf);
         ((TextView)findViewById(es.makingapps.ahorcado.R.id.tv_developers)).setTypeface(tf);

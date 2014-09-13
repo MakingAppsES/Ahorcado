@@ -19,8 +19,12 @@ public class ResultadosActivity extends ActionBarActivity {
         int ganadasPet, perdidasPet, ganadasFirst, perdidasFirst, ganadasAdvanced, perdidasAdvanced;
         int porcentajePet, porcentajeFirst, porcentajeAdvance;
 
-        // Carga de la fuente
-        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/FFF_Tusj.ttf");
+        String fontName = PreferenceManager.getString(MainActivity.KEY_FONT, this);
+        if (fontName == null) {
+            PreferenceManager.putString(MainActivity.KEY_FONT,"FFF_Tusj.ttf",this);
+            fontName = "FFF_Tusj.ttf";
+        }
+        Typeface tf = TypeFaceProvider.getTypeFace(this,fontName);
 
         final TextView tv_pet = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_pet_result);
         final TextView tv_first = (TextView) findViewById(es.makingapps.ahorcado.R.id.tv_first_result);
