@@ -30,6 +30,7 @@ public class MainActivity extends ActionBarActivity {
     public static final String KEY_KEYBOARD = "KBD";
     public static final String KEY_FONT = "FNT";
     private AdView adView;
+    private ArrayList<Button> buttonList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,18 +44,18 @@ public class MainActivity extends ActionBarActivity {
         }
 
         // Lista de botones
-        ArrayList<Button> botones = new ArrayList<Button>();
+        buttonList = new ArrayList<Button>();
         // Rellenar la lista de botones
-        botones.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_about));
-        botones.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_new_game));
-        botones.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_settings));
-        botones.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_statistics));
+        buttonList.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_about));
+        buttonList.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_new_game));
+        buttonList.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_settings));
+        buttonList.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_statistics));
 
         // Carga de la fuente
         Typeface tf = TypeFaceProvider.getTypeFace(this,fontName);
 
         // Aplicando la fuente a los botones
-        for(Button b : botones)
+        for(Button b : buttonList)
             b.setTypeface(tf);
 
         // Aplico la fuente al titulo
@@ -87,22 +88,32 @@ public class MainActivity extends ActionBarActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode,resultCode,data);
 
-        new Thread() {
-            @Override
-            public void run() {
-                try {
-                    sleep(1000);
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            adView.setVisibility(View.VISIBLE);
+        switch (requestCode) {
+            case 3:
+                Typeface tf = TypeFaceProvider.getTypeFace(this,PreferenceManager.getString(KEY_FONT,this));
+                for(Button b : buttonList)
+                    b.setTypeface(tf);
+                ((TextView) findViewById(R.id.tv_tittle_main)).setTypeface(tf);
+                break;
+            case 4:
+                new Thread() {
+                    @Override
+                    public void run() {
+                        try {
+                            sleep(1000);
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    adView.setVisibility(View.VISIBLE);
+                                }
+                            });
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
-                    });
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }.start();
+                    }
+                }.start();
+                break;
+        }
     }
 
     @Override
@@ -136,7 +147,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void opciones(View view) {
-        startActivity(new Intent(this, OpcionesActivity.class));
+        startActivityForResult(new Intent(this, OpcionesActivity.class), 3);
 
         reproducirSonido(es.makingapps.ahorcado.R.raw.pagination, this);
 
@@ -145,7 +156,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void acercaDe(View view) {
         adView.setVisibility(View.INVISIBLE);
-        startActivityForResult(new Intent(this, AcercaDeActivity.class), 1);
+        startActivityForResult(new Intent(this, AcercaDeActivity.class), 4);
 
         //startActivity(new Intent(this, AcercaDeActivity.class));
 

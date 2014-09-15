@@ -1,15 +1,19 @@
 package es.makingapps.ahorcado;
 
 import android.graphics.Typeface;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.LinkedList;
+import java.util.List;
+
 
 public class OpcionesActivity extends ActionBarActivity {
+    List<TextView> textViewList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +25,19 @@ public class OpcionesActivity extends ActionBarActivity {
             PreferenceManager.putString(MainActivity.KEY_FONT,"FFF_Tusj.ttf",this);
             fontName = "FFF_Tusj.ttf";
         }
-        Typeface tf = TypeFaceProvider.getTypeFace(this,fontName);
+        Typeface tf = TypeFaceProvider.getTypeFace(this, fontName);
 
-        ((TextView)findViewById(es.makingapps.ahorcado.R.id.tv_tittle_options)).setTypeface(tf);
-        ((TextView)findViewById(es.makingapps.ahorcado.R.id.tv_keyboard)).setTypeface(tf);
-        ((TextView)findViewById(es.makingapps.ahorcado.R.id.btn_keyboard)).setTypeface(tf);
+        textViewList = new LinkedList<TextView>();
+        textViewList.add((TextView)findViewById(R.id.tv_tittle_options));
+        textViewList.add((TextView)findViewById(R.id.tv_keyboard));
+        textViewList.add((TextView)findViewById(R.id.btn_keyboard));
+        textViewList.add((TextView)findViewById(R.id.tv_font));
+
+        for (TextView tv : textViewList) {
+            tv.setTypeface(tf);
+        }
+        ((TextView)findViewById(R.id.btn_font_A)).setTypeface(TypeFaceProvider.getTypeFace(this,"FFF_Tusj.ttf"));
+        ((TextView)findViewById(R.id.btn_font_B)).setTypeface(TypeFaceProvider.getTypeFace(this,"Tinet.ttf"));
 
         Boolean querty = false;
         try {
@@ -36,11 +48,25 @@ public class OpcionesActivity extends ActionBarActivity {
         }
 
         cambiarTextViewKeyboard(querty);
+        setFont(PreferenceManager.getString(MainActivity.KEY_FONT,this));
 
         findViewById(es.makingapps.ahorcado.R.id.btn_keyboard).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 toggleKeyboard();
+            }
+        });
+
+        findViewById(R.id.btn_font_A).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setFont("FFF_Tusj.ttf");
+            }
+        });
+        findViewById(R.id.btn_font_B).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setFont("Tinet.ttf");
             }
         });
     }
@@ -76,6 +102,32 @@ public class OpcionesActivity extends ActionBarActivity {
             ((TextView)findViewById(es.makingapps.ahorcado.R.id.btn_keyboard)).setText("No");
         }
     }
+
+    private void setFont(String font) {
+        PreferenceManager.putString(MainActivity.KEY_FONT, font, this);
+
+        Typeface tf = TypeFaceProvider.getTypeFace(this,font);
+        for (TextView tv : textViewList)
+            tv.setTypeface(tf);
+
+        if (font.equals("FFF_Tusj.ttf")) {
+            ((TextView) findViewById(R.id.btn_font_A)).setTextColor(
+                    getResources().getColor(R.color.darkgreen)
+            );
+            ((TextView)findViewById(R.id.btn_font_B)).setTextColor(
+                    getResources().getColor(R.color.darkred)
+            );
+        }
+        else {
+            ((TextView) findViewById(R.id.btn_font_A)).setTextColor(
+                    getResources().getColor(R.color.darkred)
+            );
+            ((TextView)findViewById(R.id.btn_font_B)).setTextColor(
+                    getResources().getColor(R.color.darkgreen)
+            );
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
