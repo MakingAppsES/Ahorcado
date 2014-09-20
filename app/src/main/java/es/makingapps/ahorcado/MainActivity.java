@@ -28,7 +28,6 @@ public class MainActivity extends ActionBarActivity {
     public static final String KEY_WON = "WON";
     public static final String KEY_LOST = "LST";
     public static final String KEY_KEYBOARD = "KBD";
-    public static final String KEY_FONT = "FNT";
     private AdView adView;
     private ArrayList<Button> buttonList;
 
@@ -37,11 +36,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(es.makingapps.ahorcado.R.layout.activity_main);
 
-        String fontName = PreferenceManager.getString(MainActivity.KEY_FONT, this);
-        if (fontName == null) {
-            PreferenceManager.putString(MainActivity.KEY_FONT,"FFF_Tusj.ttf",this);
-            fontName = "FFF_Tusj.ttf";
-        }
+        String fontName = "Tinet.ttf";
 
         // Lista de botones
         buttonList = new ArrayList<Button>();
@@ -90,12 +85,9 @@ public class MainActivity extends ActionBarActivity {
 
         switch (requestCode) {
             case 3:
-                Typeface tf = TypeFaceProvider.getTypeFace(this,PreferenceManager.getString(KEY_FONT,this));
-                for(Button b : buttonList)
-                    b.setTypeface(tf);
-                ((TextView) findViewById(R.id.tv_tittle_main)).setTypeface(tf);
+                // Retorno de OpcionesActivity
                 break;
-            case 4:
+            case 4: // Retorno de AcercaDe
                 new Thread() {
                     @Override
                     public void run() {

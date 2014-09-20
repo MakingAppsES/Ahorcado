@@ -46,11 +46,7 @@ public class GameActivity extends ActionBarActivity {
         }
         setContentView(querty ? es.makingapps.ahorcado.R.layout.activity_game_qwerty : es.makingapps.ahorcado.R.layout.activity_game);
 
-        String fontName = PreferenceManager.getString(MainActivity.KEY_FONT, this);
-        if (fontName == null) {
-            PreferenceManager.putString(MainActivity.KEY_FONT,"FFF_Tusj.ttf",this);
-            fontName = "FFF_Tusj.ttf";
-        }
+        String fontName = "Tinet.ttf";
 
         Bundle extras = getIntent().getExtras();
         // Obtenemos datos enviados en el intent.
