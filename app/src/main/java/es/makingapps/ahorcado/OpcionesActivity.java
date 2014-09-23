@@ -25,7 +25,8 @@ public class OpcionesActivity extends ActionBarActivity {
         textViewList = new LinkedList<TextView>();
         textViewList.add((TextView)findViewById(R.id.tv_tittle_options));
         textViewList.add((TextView)findViewById(R.id.tv_keyboard));
-        textViewList.add((TextView)findViewById(R.id.btn_keyboard));
+        textViewList.add((TextView)findViewById(R.id.btn_querty));;
+        textViewList.add((TextView)findViewById(R.id.btn_alfa));
 
         for (TextView tv : textViewList) {
             tv.setTypeface(tf);
@@ -41,14 +42,32 @@ public class OpcionesActivity extends ActionBarActivity {
 
         cambiarTextViewKeyboard(querty);
 
-        findViewById(es.makingapps.ahorcado.R.id.btn_keyboard).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_querty).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleKeyboard();
+                setKeyboardType(true);
+            }
+        });
+        findViewById(R.id.btn_alfa).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setKeyboardType(false);
             }
         });
     }
 
+    private void setKeyboardType(boolean querty) {
+        PreferenceManager.putBoolean(
+                MainActivity.KEY_KEYBOARD,
+                querty,
+                OpcionesActivity.this
+        );
+        cambiarTextViewKeyboard(querty);
+    }
+
+    /**
+     * @deprecated Ahora hay una función que opera según un parametro. <code>setKeyboardType</code>
+     */
     private void toggleKeyboard() {
         Boolean querty;
         try {
@@ -68,16 +87,20 @@ public class OpcionesActivity extends ActionBarActivity {
 
     private void cambiarTextViewKeyboard(boolean querty) {
         if(querty){
-            ((TextView)findViewById(es.makingapps.ahorcado.R.id.btn_keyboard)).setTextColor(
-                    getResources().getColor(es.makingapps.ahorcado.R.color.darkgreen)
+            ((TextView)findViewById(R.id.btn_querty)).setTextColor(
+                    getResources().getColor(R.color.green)
             );
-            ((TextView)findViewById(es.makingapps.ahorcado.R.id.btn_keyboard)).setText("Sí");
+            ((TextView)findViewById(R.id.btn_alfa)).setTextColor(
+                    getResources().getColor(android.R.color.darker_gray)
+            );
         }
         else {
-            ((TextView)findViewById(es.makingapps.ahorcado.R.id.btn_keyboard)).setTextColor(
-                    getResources().getColor(es.makingapps.ahorcado.R.color.darkred)
+            ((TextView)findViewById(R.id.btn_querty)).setTextColor(
+                    getResources().getColor(android.R.color.darker_gray)
             );
-            ((TextView)findViewById(es.makingapps.ahorcado.R.id.btn_keyboard)).setText("No");
+            ((TextView)findViewById(R.id.btn_alfa)).setTextColor(
+                    getResources().getColor(R.color.green)
+            );
         }
     }
 
