@@ -12,7 +12,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_opciones">OpcionesActivity</string>
     <string name="title_activity_acerca_de">AcercaDeActivity</string>
-    <string name="about_description_txt">Esta aplicación es software libre.</string>
+    <string name="about_description_txt">Ahorcado español-inglés es un juego del ahorcado en el que,
+        a partir de una palabra en español, se tiene que averiguar su traducción. \n
+        Cuenta con tres niveles de dificultad con vocabulario relativo a los niveles PET, FCE y CAE de Cambridge.</string>
     <string name="about_developers_txt">Desarrollado por antorof y Carranza.</string>
     <string name="about_github_url">https://github.com/MakingAppsES/Ahorcado</string>
     <string name="about_antorof_url">https://github.com/antorof</string>

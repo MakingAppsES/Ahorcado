@@ -1,116 +1,130 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="es.makingapps.ahorcado.AcercaDeActivity">
 
-    <TextView
-        android:id="@+id/tv_tittle_about"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="34sp"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:text="@string/app_name"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tv_tittle_about"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="34sp"
+            android:text="@string/app_name"/>
+
+        <TextView
+            android:id="@+id/tv_esen"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="Español - Inglés"/>
 
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="150dip"
-        android:layout_height="200dip"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_launcher_big"/>
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="150dip"
+            android:src="@drawable/ic_launcher_big"/>
 
-    <TextView
-        android:id="@+id/tv_description"
-        android:text="@string/about_description_txt"
-        android:layout_below="@id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/tv_description"
+            android:text="@string/about_description_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dip"
+            android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/tv_developers"
-        android:text="@string/about_developers_txt"
-        android:layout_below="@id/tv_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/tv_developers"
+            android:text="@string/about_developers_txt"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dip"
+            android:gravity="center" />
 
+    <!--
 
-    <TextView
-        android:id="@+id/tv_github"
-        android:text="@string/about_github_txt"
-        android:layout_below="@id/tv_developers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/activity_vertical_margin"/>
+        <TextView
+            android:id="@+id/tv_github"
+            android:text="@string/about_github_txt"
+            android:layout_below="@id/tv_developers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/activity_vertical_margin"/>
 
-    <TextView
-        android:id="@+id/tv_github_url"
-        android:text="@string/about_github_url"
-        android:layout_below="@id/tv_github"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:textColor="@color/darkblue"/>
+        <TextView
+            android:id="@+id/tv_github_url"
+            android:text="@string/about_github_url"
+            android:layout_below="@id/tv_github"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="@color/darkblue"/>
 
-    <TextView
-        android:id="@+id/tv_github_antorof"
-        android:text="@string/about_antorof_txt"
-        android:layout_below="@id/tv_github_url"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/activity_vertical_margin"/>
+        <TextView
+            android:id="@+id/tv_github_antorof"
+            android:text="@string/about_antorof_txt"
+            android:layout_below="@id/tv_github_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/activity_vertical_margin"/>
 
-    <TextView
-        android:id="@+id/tv_github_antorof_url"
-        android:text="@string/about_antorof_url"
-        android:layout_below="@id/tv_github_antorof"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:textColor="@color/darkblue"/>
+        <TextView
+            android:id="@+id/tv_github_antorof_url"
+            android:text="@string/about_antorof_url"
+            android:layout_below="@id/tv_github_antorof"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="@color/darkblue"/>
 
-    <TextView
-        android:id="@+id/tv_github_carranza"
-        android:text="@string/about_carranza_txt"
-        android:layout_below="@id/tv_github_antorof_url"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/activity_vertical_margin"/>
+        <TextView
+            android:id="@+id/tv_github_carranza"
+            android:text="@string/about_carranza_txt"
+            android:layout_below="@id/tv_github_antorof_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/activity_vertical_margin"/>
 
-    <TextView
-        android:id="@+id/tv_github_carranza_url"
-        android:text="@string/about_carranza_url"
-        android:layout_below="@id/tv_github_carranza"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:textColor="@color/darkblue"/>
+        <TextView
+            android:id="@+id/tv_github_carranza_url"
+            android:text="@string/about_carranza_url"
+            android:layout_below="@id/tv_github_carranza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="@color/darkblue"/>
+    -->
 
-    <TextView
-        android:id="@+id/tv_version"
-        android:text="@string/about_version_txt"
-        android:layout_below="@id/tv_github_carranza_url"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_marginTop="34dp"/>
+        <TextView
+            android:id="@+id/tv_version"
+            android:text="@string/about_version_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="34dp"/>
 
+    </LinearLayout>
 
-</RelativeLayout>
+</ScrollView>
