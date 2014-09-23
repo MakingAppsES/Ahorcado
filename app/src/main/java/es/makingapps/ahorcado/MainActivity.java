@@ -110,7 +110,7 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(es.makingapps.ahorcado.R.menu.main, menu);
+        //getMenuInflater().inflate(es.makingapps.ahorcado.R.menu.main, menu);
 
         return true;
     }
