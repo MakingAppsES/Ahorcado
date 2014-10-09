@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textColor="@android:color/black"
-        android:text="Dificultad"
+        android:text="@string/title_dialog_difficulty"
         android:textSize="26sp"/>
 
     <Button
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/main_button_green"
-        android:text="PET"/>
+        android:text="@string/btn_b1_text"/>
 
     <Button
         android:id="@+id/btn_b2_excl"
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/main_button_yellow"
-        android:text="FIRST"/>
+        android:text="@string/btn_b2excl_text"/>
 
     <!--<Button-->
         <!--android:id="@+id/btn_b2_acum"-->
@@ -47,7 +47,7 @@
         android:layout_gravity="center_horizontal"
         android:background="@drawable/main_button_red"
         android:textColor="@android:color/white"
-        android:text="ADVANCED"/>
+        android:text="@string/btn_c1excl_text"/>
 
     <!--<Button-->
         <!--android:id="@+id/btn_c1_acum"-->

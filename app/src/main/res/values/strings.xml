@@ -19,9 +19,13 @@
     <string name="about_github_url">https://github.com/MakingAppsES/Ahorcado</string>
     <string name="about_antorof_url">https://github.com/antorof</string>
     <string name="about_carranza_url">https://github.com/Carranza</string>
-    <string name="about_version_txt">v0.1 @ 2014/09</string>
+    <string name="about_version_txt">v0.2 @ 2014/10</string>
     <string name="about_github_txt">- Proyecto en GitHub -</string>
     <string name="about_antorof_txt">- antorof -</string>
     <string name="about_carranza_txt">- Carranza -</string>
+    <string name="title_dialog_difficulty">Dificultad</string>
+    <string name="btn_b1_text">P.E.T. - B1</string>
+    <string name="btn_b2excl_text">F.C.E. - B2</string>
+    <string name="btn_c1excl_text">C.A.E. - C1</string>
 
 </resources>
