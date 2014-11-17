@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="about_version_txt">v1.0 @ 2014/11</string>
     <string name="app_name">Ahorcado ES-EN</string>
     <string name="ahorcado">Ahorcado</string>
     <string name="action_settings">Settings</string>
@@ -14,13 +15,12 @@
     <string name="title_activity_opciones">OpcionesActivity</string>
     <string name="title_activity_acerca_de">AcercaDeActivity</string>
     <string name="about_description_txt">Ahorcado español-inglés es un juego del ahorcado en el que,
-        a partir de una palabra en español, se tiene que averiguar su traducción. \n
-        Cuenta con tres niveles de dificultad con vocabulario relativo a los niveles PET, FCE y CAE de Cambridge.</string>
+        a partir de una palabra en español, se tiene que averiguar su traducción al inglés. \n
+        Cuenta con tres niveles de dificultad con vocabulario relativo a los niveles PET, FCE y CAE de Cambridge (o B1, B2 y C1 del MCER).</string>
     <string name="about_developers_txt"></string>
     <string name="about_github_url">https://github.com/MakingAppsES/Ahorcado</string>
     <string name="about_antorof_url">https://github.com/antorof</string>
     <string name="about_carranza_url">https://github.com/Carranza</string>
-    <string name="about_version_txt">v0.5 @ 2014/11</string>
     <string name="about_github_txt">- Proyecto en GitHub -</string>
     <string name="about_antorof_txt">- antorof -</string>
     <string name="about_carranza_txt">- Carranza -</string>
