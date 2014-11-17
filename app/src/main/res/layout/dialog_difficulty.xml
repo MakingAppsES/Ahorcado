@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/main_button_green"
+        android:textSize="18sp"
         android:text="@string/btn_b1_text"/>
 
     <Button
@@ -30,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/main_button_yellow"
+        android:textSize="18sp"
         android:text="@string/btn_b2excl_text"/>
 
     <!--<Button-->
@@ -47,6 +49,7 @@
         android:layout_gravity="center_horizontal"
         android:background="@drawable/main_button_red"
         android:textColor="@android:color/white"
+        android:textSize="18sp"
         android:text="@string/btn_c1excl_text"/>
 
     <!--<Button-->
