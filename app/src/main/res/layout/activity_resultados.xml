@@ -76,7 +76,8 @@
             android:background="@drawable/main_button_red"
             android:textColor="@android:color/white"
             android:text="Borrar Resultados"
-            android:layout_marginTop="@dimen/activity_vertical_margin"/>
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:visibility="gone"/>
 
     </LinearLayout>
 </ScrollView>
