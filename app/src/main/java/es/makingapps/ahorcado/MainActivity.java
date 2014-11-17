@@ -43,7 +43,7 @@ public class MainActivity extends ActionBarActivity {
         // Rellenar la lista de botones
         buttonList.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_about));
         buttonList.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_new_game));
-        buttonList.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_settings));
+//        buttonList.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_settings));
         buttonList.add((Button) findViewById(es.makingapps.ahorcado.R.id.btn_statistics));
 
         // Carga de la fuente
@@ -55,6 +55,7 @@ public class MainActivity extends ActionBarActivity {
 
         // Aplico la fuente al titulo
         ((TextView) findViewById(es.makingapps.ahorcado.R.id.tv_tittle_main)).setTypeface(tf);
+        ((TextView) findViewById(R.id.tv_esen)).setTypeface(tf);
 
         // Pongo el drawable correspondiente en el boton segun este activado o no el sonido
         Boolean sonidoActivo;
