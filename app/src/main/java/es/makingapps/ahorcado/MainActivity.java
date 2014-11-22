@@ -186,8 +186,10 @@ public class MainActivity extends ActionBarActivity {
         }
 
         if( sonidoActivo ) {
-            MediaPlayer mediaPlayer = MediaPlayer.create(activity.getApplicationContext(), idSonido);
-            mediaPlayer.start();
+            try {
+                MediaPlayer mediaPlayer = MediaPlayer.create(activity.getApplicationContext(), idSonido);
+                mediaPlayer.start();
+            } catch (Exception e) {}
         }
     }
 }
