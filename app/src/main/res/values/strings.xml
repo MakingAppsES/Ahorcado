@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="about_version_txt">v1.1 @ 2014/11</string>
+    <string name="about_version_txt">v1.2 @ 2014/11</string>
     <string name="app_name">Ahorcado ES-EN</string>
     <string name="ahorcado">Ahorcado</string>
     <string name="action_settings">Settings</string>
