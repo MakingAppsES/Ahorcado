@@ -908,7 +908,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "radio", "radium", B1);
         insertPalabra(database, "reconocimiento", "recognition", B1);
         insertPalabra(database, "religión", "religion", B1);
-        insertPalabra(database, "aplicar", "rub", B1);
+        insertPalabra(database, "frotar", "rub", B1);
         insertPalabra(database, "salario", "salary", B1);
         insertPalabra(database, "compartir", "share", B1);
         insertPalabra(database, "piel", "skin", B1);
@@ -1724,7 +1724,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "jengibre", "ginger", B2);
         insertPalabra(database, "dar", "give", B2);
         insertPalabra(database, "dar a algo una oportunidad", "give something a try", B2);
-        insertPalabra(database, "dejar de", "give up", B2);
+        insertPalabra(database, "dejar de hacer algo", "give up", B2);
         insertPalabra(database, "rendirse", "give up on ", B2);
         insertPalabra(database, "contento", "glad", B2);
         insertPalabra(database, "glamuroso", "glamorous", B2);
@@ -2679,7 +2679,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "animaciones", "animation", C1);
         insertPalabra(database, "tobillo", "ankle", C1);
         insertPalabra(database, "hacer enfadar", "annoy", C1);
-        insertPalabra(database, "enfadarse", "antagonise", C1);
+        insertPalabra(database, "provocar", "goad", C1);
         insertPalabra(database, "antisocial", "anti-social", C1);
         insertPalabra(database, "contra la guerra", "anti-war", C1);
         insertPalabra(database, "ansiosamente", "anxiously", C1);
@@ -3002,7 +3002,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "ecologista", "environmentalist", C1);
         insertPalabra(database, "ecológico", "environmentally", C1);
         insertPalabra(database, "personificar", "epitomise", C1);
-        insertPalabra(database, "equina", "equine", C1);
+        insertPalabra(database, "equino", "equine", C1);
         insertPalabra(database, "error", "error", C1);
         insertPalabra(database, "erupción", "eruption", C1);
         insertPalabra(database, "escaleras automáticas", "escalator", C1);
@@ -3023,7 +3023,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "aspecto caro / a", "expensive-looking", C1);
         insertPalabra(database, "experimento", "experiment", C1);
         insertPalabra(database, "experimento", "experimentation", C1);
-        insertPalabra(database, "habilidad", "expertise", C1);
+        insertPalabra(database, "pericia", "expertise", C1);
         insertPalabra(database, "explicación", "explanation", C1);
         insertPalabra(database, "exploración", "exploration", C1);
         insertPalabra(database, "explorar", "explore", C1);
@@ -3123,7 +3123,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "historia de fantasmas", "ghost story", C1);
         insertPalabra(database, "don", "gift", C1);
         insertPalabra(database, "dotado / a", "gifted", C1);
-        insertPalabra(database, "dejar de", "give up", C1);
+        insertPalabra(database, "dejar de hacer algo", "give up", C1);
         insertPalabra(database, "encanto", "glamour", C1);
         insertPalabra(database, "deslizar", "glide", C1);
         insertPalabra(database, "ver fugazmente", "glimpse", C1);
@@ -3291,7 +3291,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "seguir los acontecimientos", "keep track", C1);
         insertPalabra(database, "mantener el ritmo", "keep up", C1);
         insertPalabra(database, "patada en el estómago", "kicked-in-the-guts", C1);
-        insertPalabra(database, "inicio del partido", "kick-off", C1);
+        insertPalabra(database, "hacer el saque inicial", "kick off", C1);
         insertPalabra(database, "secuestrador", "kidnapper", C1);
         insertPalabra(database, "asesino", "killer", C1);
         insertPalabra(database, "amable", "kindly", C1);
@@ -3668,7 +3668,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "dicho", "saying", C1);
         insertPalabra(database, "magnitud", "scale", C1);
         insertPalabra(database, "estafa", "scam", C1);
-        insertPalabra(database, "éscaner / exploración", "scan", C1);
+        insertPalabra(database, "exploración", "reconnaissance", C1);
         insertPalabra(database, "espantar", "scare", C1);
         insertPalabra(database, "de terror", "scary", C1);
         insertPalabra(database, "escena", "scene", C1);
@@ -3878,7 +3878,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "torneo", "tournament", C1);
         insertPalabra(database, "hacia", "towards", C1);
         insertPalabra(database, "rastro", "trace", C1);
-        insertPalabra(database, "localizar", "track", C1);
+        insertPalabra(database, "localizar", "pinpoint", C1);
         insertPalabra(database, "localizador (dispositivo)", "tracking", C1);
         insertPalabra(database, "tradicionalmente", "traditionally", C1);
         insertPalabra(database, "embotellamiento", "traffic jam", C1);
@@ -3995,7 +3995,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "quien", "whom", C1);
         insertPalabra(database, "extensamente", "widely", C1);
         insertPalabra(database, "abrirse mucho", "widen", C1);
-        insertPalabra(database, "desierta", "wilderness", C1);
+        insertPalabra(database, "yermo", "wilderness", C1);
         insertPalabra(database, "dispuesto / a", "willing", C1);
         insertPalabra(database, "con alas", "winged", C1);
         insertPalabra(database, "complexión delgada pero fuerte", "wiry", C1);
@@ -4019,6 +4019,8 @@ public class BaseDatos extends SQLiteOpenHelper {
         insertPalabra(database, "vosotros mismos", "yourselves", C1);
         insertPalabra(database, "juventud", "youth", C1);
         insertPalabra(database, "ir rápido", "zip", C1);
+
+        insertPalabra(database, "rastrear", "track", C1);
     }
 
     /* ------------------------------------------------------------------------------------------ */
