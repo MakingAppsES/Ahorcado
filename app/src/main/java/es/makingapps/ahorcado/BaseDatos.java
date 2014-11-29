@@ -10,10 +10,11 @@ import android.util.Log;
 public class BaseDatos extends SQLiteOpenHelper {
 
     private final static String NAME = "ahorcado.db";
-    private final static int VERSION = 1;
+    private final static int VERSION = 2;
     private final static String ESPANIOL = "espaniol";
     private final static String INGLES = "ingles";
     private final static String DIFICULTAD = "dificultad";
+    private final static String FALLOS = "fallos";
     public final static int B1 = 1;
     public final static int B2 = 2;
     public final static int C1 = 3;
@@ -23,7 +24,8 @@ public class BaseDatos extends SQLiteOpenHelper {
                                                      " _id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                                                      ESPANIOL + " TEXT, " +
                                                      INGLES + " TEXT, " +
-                                                     DIFICULTAD +" INTEGER);";
+                                                     DIFICULTAD +" INTEGER, " +
+                                                     FALLOS +" INTEGER);";
 
     public BaseDatos(Context context){
         super(context, NAME, null, VERSION);
@@ -52,11 +54,62 @@ public class BaseDatos extends SQLiteOpenHelper {
         // insertPalabra(database,"Espolvorear","Sprinkle",C1);
     }
 
+    /**
+     * Inserta una palabra en la base de datos.
+     * @param database Instacia de la base de datos
+     * @param spa      Palabra en espa&ntilde;ol
+     * @param eng      Palabra en ingles
+     * @param dif      Nivel de dificultad de la palabra
+     */
     private void insertPalabra(SQLiteDatabase database, String spa, String eng, int dif){
-        database.execSQL("INSERT INTO "+VOCABULARIO+" ("+ESPANIOL+","+INGLES+","+DIFICULTAD+") " +
-                         "VALUES ('" + spa + "', '" + eng + "', " + dif + ");");
+        database.execSQL("INSERT INTO "+VOCABULARIO+
+                " ("+ESPANIOL+","+INGLES+","+DIFICULTAD+","+FALLOS+") " +
+                " VALUES ('" + spa + "', '" + eng + "', " + dif + ", 7);");
     }
 
+    /**
+     * Inserta una palabra en la base de datos a partir de una Palabra
+     * @param p {@link es.makingapps.ahorcado.Palabra} que queremos insertar
+     */
+    public void insertPalabra(Palabra p) {
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(ESPANIOL, p.getEspaniol());
+        values.put(INGLES, p.getIngles());
+        values.put(DIFICULTAD, p.getDificultad());
+        values.put(FALLOS, 7);
+
+        if(database.insert(VOCABULARIO, null , values) == -1){
+            database.close();
+            throw new RuntimeException("No se ha podido insertar la palabra en la base de datos");
+        }
+
+        database.close();
+    }
+
+    /**
+     * Actualiza el contador de fallos de la palabra identificada por <tt>id</tt>.
+     * @param id     id de la palabra
+     * @param fallos Numero de fallos
+     */
+    public void updatePalabra(int id, int fallos) {
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query =
+                "UPDATE "+VOCABULARIO+
+                " SET " + FALLOS + "=" + fallos +
+                " WHERE _id=" + id + ";";
+        database.execSQL(query);
+
+        database.close();
+    }
+
+    /**
+     * Resetea la base de datos eliminando los registros y volviendolos a crear.
+     * @param database Instancia de la base de datos
+     */
     private void doReset(SQLiteDatabase database){
         database.execSQL("DROP TABLE IF EXISTS " + VOCABULARIO);
 
@@ -71,28 +124,10 @@ public class BaseDatos extends SQLiteOpenHelper {
         doReset(database);
     }
 
-    public void insertPalabra(Palabra p) {
-        SQLiteDatabase database = this.getWritableDatabase();
-
-        /*
-        database.execSQL("INSERT INTO Vocabulario (espaniol, ingles, dificultad) VALUES (" +
-                         p.getEspaniol() + ", " + p.getIngles() + ", " + p.getDificultad() + ");";
-        */
-
-        ContentValues values = new ContentValues();
-
-        values.put(ESPANIOL, p.getEspaniol());
-        values.put(INGLES, p.getIngles());
-        values.put(DIFICULTAD, p.getDificultad());
-
-        if(database.insert(VOCABULARIO, null , values) == -1){
-            database.close();
-            throw new RuntimeException("No se ha podido insertar la palabra en la base de datos");
-        }
-
-        database.close();
-    }
-
+    /**
+     * Devuelve una palabra aleatoria de cualquier nivel de dificultad.
+     * @return {@link Palabra} aleatoria
+     */
     public Palabra queryPalabraAleatoria() {
 
         Palabra palabra = null;
@@ -104,7 +139,8 @@ public class BaseDatos extends SQLiteOpenHelper {
         Cursor cursor = database.rawQuery(query, null);
         if(cursor.moveToFirst()){
 
-            palabra = new Palabra(cursor.getString(cursor.getColumnIndex(ESPANIOL)),
+            palabra = new Palabra(cursor.getInt(cursor.getColumnIndex("_id")),
+                    cursor.getString(cursor.getColumnIndex(ESPANIOL)),
                     cursor.getString(cursor.getColumnIndex(INGLES)),
                     cursor.getInt(cursor.getColumnIndex(DIFICULTAD)));
         }
@@ -115,6 +151,13 @@ public class BaseDatos extends SQLiteOpenHelper {
         return palabra;
     }
 
+    /**
+     * Devuelve una palabra aleatoria teniendo en cuenta el número de fallos
+     * y el nivel indicado.
+     * @param nivel       Nivel de la palabra
+     * @param acumulativo Indica si queremos que incluya los niveles inferiores al indicado
+     * @return {@link Palabra} seleccionada
+     */
     public Palabra queryPalabraAleatoria(int nivel, boolean acumulativo) {
 
         Palabra palabra = null;
@@ -123,12 +166,13 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         String query = "SELECT * FROM " + VOCABULARIO +
                 " WHERE "+BaseDatos.DIFICULTAD + (acumulativo?"<=":"=") + nivel +
-                " ORDER BY RANDOM() LIMIT 1;";
+                " ORDER BY "+FALLOS+" DESC, RANDOM() LIMIT 1;";
 
         Cursor cursor = database.rawQuery(query, null);
         if(cursor.moveToFirst()){
 
-            palabra = new Palabra(cursor.getString(cursor.getColumnIndex(ESPANIOL)),
+            palabra = new Palabra(cursor.getInt(cursor.getColumnIndex("_id")),
+                    cursor.getString(cursor.getColumnIndex(ESPANIOL)),
                     cursor.getString(cursor.getColumnIndex(INGLES)),
                     cursor.getInt(cursor.getColumnIndex(DIFICULTAD)));
         }

@@ -327,5 +327,17 @@ public class GameActivity extends ActionBarActivity {
             contador = 0;
         }
         PreferenceManager.putInt(str_nivel+resultado,contador+1,this);
+        almacenarFallos();
+    }
+
+    /**
+     * Actualiza los fallos de la palabra actual en la base de datos.
+     */
+    private void almacenarFallos() {
+        BaseDatos bd = new BaseDatos(this);
+//        Log.i("FALLOS","Nmero de fallos final: "+fallos);
+        bd.updatePalabra(palabraActual.getId(),fallos);
+
+        bd.close();
     }
 }

@@ -3,15 +3,20 @@ package es.makingapps.ahorcado;
 
 
 public class Palabra {
-
+    private int id;
     private String espaniol;
     private String ingles;
     private int dificultad;
 
-    public Palabra(String espaniol, String ingles, int dificultad) {
+    public Palabra(int id, String espaniol, String ingles, int dificultad) {
+        this.id = id;
         this.espaniol = espaniol.toLowerCase();
         this.ingles = ingles.toLowerCase();
         this.dificultad = dificultad;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getEspaniol() {
