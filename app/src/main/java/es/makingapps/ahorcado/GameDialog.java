@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.gms.games.Game;
-
 public class GameDialog extends ClearDialog {
     private String tittle;
     Activity activity;
@@ -38,7 +36,7 @@ public class GameDialog extends ClearDialog {
         tv_tittle.setText(tittle);
         tv_word.setText((((GameActivity) activity).getPalabraActual()).getIngles());
 
-        tv_word.setTextColor((((GameActivity) activity)).getFallosActuales()==GameActivity.FALLOS ?
+        tv_word.setTextColor((((GameActivity) activity)).getFallosActuales()==GameActivity.MAX_FALLOS ?
                 activity.getResources().getColor(es.makingapps.ahorcado.R.color.darkred) :
                 activity.getResources().getColor(es.makingapps.ahorcado.R.color.darkgreen));
 

@@ -3,9 +3,8 @@ package es.makingapps.ahorcado;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.TypedValue;
+import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,18 +19,17 @@ import java.util.ArrayList;
 
 public class GameActivity extends ActionBarActivity {
 
-    public static final int FALLOS = 7;
+    public static final int MAX_FALLOS = 7;
 
     private View.OnClickListener clickListenerLetras;
     private ArrayList<TextView> botonesLetras;
-    private TextView palabraEspaniol;
-    private TextView palabraIngles;
+    private TextView palabraEspaniol,
+                     palabraIngles;
     private String progreso;
     private Palabra palabraActual;
-    private int fallos;
-    private GameDialog gameDialog;
+    private int fallos,
+                nivelSeleccionado;
     private boolean finDePartida = false; // Evita que pulsemos otras letras si somos rapidos
-    private int nivelSeleccionado;
     private boolean esAcumulativo;
 
     @Override
@@ -128,6 +126,9 @@ public class GameActivity extends ActionBarActivity {
         }
     }
 
+    /**
+     * Inicia un nuevo juego y toma una nueva palabra.
+     */
     public void nuevoJuego() {
         fallos = 0;
         finDePartida = false;
@@ -276,7 +277,7 @@ public class GameActivity extends ActionBarActivity {
 
                 MainActivity.reproducirSonido(es.makingapps.ahorcado.R.raw.error, this);
 
-                if (fallos == FALLOS) {
+                if (fallos == MAX_FALLOS) {
                     finDePartida = true;
                     new GameDialog(this, "¡Ooops!", false).show();
                     almacenarEstadisticas(MainActivity.KEY_LOST);
@@ -304,6 +305,12 @@ public class GameActivity extends ActionBarActivity {
         return resultado;
     }
 
+    /**
+     * Almacena el resultado para la contabilizacion de las estadisticas.
+     * @param resultado <tt>String</tt> que puede ser <tt>MainActivity.KEY_WON</tt> o
+     *                  <tt>MainActivity.KEY_LOST</tt>, para indicar si se ha ganado o
+     *                  perdido la partida
+     */
     private void almacenarEstadisticas(String resultado){
         int nivel = palabraActual.getDificultad();
         String str_nivel = "";
